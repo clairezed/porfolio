@@ -1,0 +1,41 @@
+doctype html
+html lang="#{I18n.locale}"
+  head
+    title= @seo_title
+    meta name="description" content="#{@seo_description}"
+    meta name="keywords" content="#{@seo_keywords}"
+    meta name="author" content="Studio HB, Agence Web Ruby On Rails Lyon"
+    meta http-equiv="content-type" content="text/html;charset=UTF-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    = csrf_meta_tags
+    = robots_indexation_prevention
+
+    = stylesheet_link_tag 'application', media: 'all'
+
+    /[if lt IE 9]
+      script src="http://html5shim.googlecode.com/svn/trunk/html5.js"
+    /<![endif]
+
+    = favicon_link_tag asset_path 'favicons/favicon.ico'
+
+    = javascript_include_tag "application"
+    = render_document_ready_scripts
+  body
+    header
+      .container
+        nav.navbar.navbar-inverse role="navigation"
+          .navbar-header
+            = link_to "PROJET", root_path, class: "navbar-brand"
+          .collapse.navbar-collapse.navbar-ex1-collapse
+            ul.nav.navbar-nav
+              = menu_link 'Accueil', root_path, section: :home, title: "Retour à l'accueil"
+              = menu_link 'Administration', admin_root_path, section: :sign_in_admin, title: "Retour à l'accueil"
+    = raw flash_messages
+    .container
+      = yield
+
+
+    footer
+      .container
+        hr © CZ

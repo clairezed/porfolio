@@ -35,5 +35,9 @@ Rails.application.configure do
   config.active_support.deprecation = :stderr
 
   # Raises error for missing translations
-  # config.action_view.raise_on_missing_translations = true
+  # config.action_view.raise_on_missing_translations = trueSYSTEM_MAILER     = "TEst <noreply@email-test.com>"
+    DEFAULT_RECIPIENT = "Contact test <admin@email.com>"
+    config.action_mailer.default_url_options = { :host => "localhost:3000" }
+    HOST = "http://localhost:3000"
+
 end

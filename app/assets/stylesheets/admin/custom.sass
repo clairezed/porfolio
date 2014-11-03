@@ -1,0 +1,78 @@
+
+body
+  padding-top: 60px
+  background-color: $background
+
+// Dropdown hover
+ul.nav li.dropdown:hover > ul.dropdown-menu
+  display: block
+
+#main-container
+  padding: 0 15px
+
+.row
+  .content-left
+    margin-top: 23px
+    +make-lg-column(2)
+  .content-main
+    +make-lg-column(10)
+
+
+// Formulaires
+.form-label-default
+  @extend .control-label
+  @extend .col-md-2
+  font-weight: normal
+.form-label-large
+  @extend .control-label
+  @extend .col-md-4
+.controls-default
+  @extend .col-md-3
+.controls-small
+  @extend .col-md-2
+.controls-xsmall
+  @extend .col-md-1
+.controls-large
+  @extend .col-md-6
+.controls-xlarge
+  @extend .col-md-8
+.form-actions
+  @extend .col-md-offset-2
+  @extend .col-md-10
+
+.required
+  label:after
+    content: " *"
+    color: #000
+  label
+    font-weight: bold
+h3.page-title
+  margin: 7px 0 15px
+
+// Tableaux
+td.action-btns
+  text-align: right
+  white-space: nowrap
+td.action-btns-tight
+  a.btn
+    padding-left: 7px
+    padding-right: 7px
+
+
+.error_explanation
+  @extend .alert
+  @extend .alert-danger
+
+.field_with_errors
+  @extend .has-error
+  display: inline
+
+#flash
+  position: fixed
+  z-index: 1500
+  top: 70px
+  font-size: 1.2em
+  width: 100%
+  text-align: center
+  span.alert
+    padding: 10px 14px

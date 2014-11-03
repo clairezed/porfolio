@@ -15,7 +15,7 @@ gem 'compass-rails'
 gem 'bootstrap-sass'
 
 #= ACTIVE RECORD =======================
-
+gem 'devise', '~> 3.4.1'
 
 #= VIEWS ===============================
 gem 'will_paginate', '~> 3.0.7'
