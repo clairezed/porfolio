@@ -1,0 +1,16 @@
+rerun.txt
+*.swp
+*.swo
+*.DS_Store
+.bundle
+db/*.sqlite3
+log/*.log
+.sass-cache/
+tmp/*
+papers/*
+
+db/schema.rb
+config/database.yml
+public/tmp/*
+public/uploads
+dump.rdb
