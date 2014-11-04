@@ -1,3 +1,81 @@
 - content_for :current_navigation_section, :home
 
-h2 Bienvenue dans la partie client
+section.bg-primary
+  .container.container-small
+    h1.text-center
+      ' Bonjour !
+      br
+      ' Je m'appelle Claire et je développe des choses et des bidules pour le web.
+  .container
+    .row
+      .col-sm-3.col-sm-offset-9.col-xs-5.col-xs-offset-7
+        h6.text-right
+          | Et aussi :
+          | je n'avais pas envie de mettre d'image cahe-misère en fond de page d'accueil.
+
+section
+  .container
+    h2.text-center Projets triés sur le volet
+
+    .row
+      .col-sm-6.col-md-4
+        .thumbnail
+          img.img-responsive alt="..." src="http://placehold.it/500x350"
+          .caption
+            h3 Bullshit Bingo
+            p Web application entièrement temps réel permettant de créer ses grilles de bingo et jouer au bullshit bingo à plusieurs.
+            p
+              span.label.label-default Meteor
+              span.label.label-default Temps réel
+              span.label.label-default Web application
+            p.text-right
+              a.btn.btn-primary href="#" role="button"  Je veux en savoir plus !
+      .col-sm-6.col-md-4
+        .thumbnail
+          img.img-responsive alt="..." src="http://placehold.it/500x350"
+          .caption
+            h3 Bullshit Bingo
+            p Web application entièrement temps réel permettant de créer ses grilles de bingo et jouer au bullshit bingo à plusieurs.
+            p
+              span.label.label-default Meteor
+              span.label.label-default Temps réel
+              span.label.label-default Web application
+            p.text-right
+              a.btn.btn-primary href="#" role="button"  Je veux en savoir plus !
+      .col-sm-6.col-md-4
+        .thumbnail
+          img.img-responsive alt="..." src="http://placehold.it/500x350"
+          .caption
+            h3 Bullshit Bingo
+            p Web application entièrement temps réel permettant de créer ses grilles de bingo et jouer au bullshit bingo à plusieurs.
+            p
+              span.label.label-default Meteor
+              span.label.label-default Temps réel
+              span.label.label-default Web application
+            p.text-right
+              a.btn.btn-primary href="#" role="button"  Je veux en savoir plus !
+.row
+.clearfix
+
+section.bg-primary
+  .container
+    h2.text-center Mais je suis qui ?
+
+    .row
+      .col-md-3
+        img.img-responsive alt="..." src="http://placehold.it/200x200"
+      .col-md-3
+        p Dans le développement web depuis 2012 après une incursion dans le milieu culturel, je me suis spécialisée en Ruby on Rails et m'intéresse aussi à plein de frameworks javascript.
+      .col-md-6.well
+        form role="form"
+          .form-group
+            label for="exampleInputEmail1"  Adresse mail
+            input#exampleInputEmail1.form-control placeholder=("Adresse mail") type="email"
+          .form-group
+            label for="exampleInputPassword1"  Objet
+            input#exampleInputPassword1.form-control placeholder="Objet" type="password"
+          .form-group
+            label for="exampleInputFile"  Votre message
+            textarea#exampleInputFile.form-control rows="3"
+            p.help-block Example block-level help text here.
+          button.btn.btn-secondary type="submit"  Submit
