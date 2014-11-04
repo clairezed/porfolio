@@ -1,10 +1,42 @@
-html, body
-  height: 100%
-  /* The html and body elements cannot have any padding or margin. */
-  background-color: $background
+// buttons
+// dropdown
+// thumbnail
+// label
+// forms
 
 
-// Formulaires
+// BUTTONS ======================================
+.btn-secondary
+  @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border)
+
+.btn-default
+  background-color: transparent
+  &:hover
+    background-color: transparent
+
+.btn-link
+  &:hover, &:focus
+    text-decoration: $link-hover-decoration
+
+// LABELS ======================================
+.label
+  padding: .2em .8em .3em
+  border-radius: 1em
+
+.label-secondary
+  @include label-variant($label-secondary-bg)
+
+// THUMBNAIL ======================================
+
+.thumbnail
+  &:hover
+    @include box-shadow(2px 2px 13px 0px rgba(0,0,0,.1))
+    .btn-primary
+      background-color: $brand-primary-dark
+
+
+// FORMS ======================================
+
 .form-label-default
   @extend .control-label
   @extend .col-md-2
@@ -62,8 +94,3 @@ td.action-btns-tight
   text-align: center
   span.alert
     padding: 10px 14px
-
-
-
-.primary-bg
-  background: $primary

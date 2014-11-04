@@ -1,23 +1,65 @@
 h1 Portfolio Styleguide
 
-.row
-  .col-md-12
-    ul
-      li
-        a href="#typography" Typography
-      li
-        a href="#colors" Colors
-      li
-        a href="#navigation" Navigation
-      li
-        a href="#buttons" Buttons
-      li
-        a href="#forms" Forms
-      li
-        a href="#containers" Containers
-.row
-  .col-md-12
-    h2 id="typography" Typography
+ul
+  li
+    a href="#colors" Colors
+  li
+    a href="#typography" Typography
+  li
+    a href="#navigation" Navigation
+  li
+    a href="#buttons" Buttons
+  li
+    a href="#forms" Forms
+  li
+    a href="#labels" Labels
+  li
+    a href="#containers" Containers
+
+.page-header
+  h2 id="colors" Colors
+.row.text-center
+  .col-md-3
+    h4 Colors
+  .col-md-3
+    p.primary-text primary
+    .sg-block.primary-bg
+  .col-md-3
+    p.secondary-text secondary
+    .sg-block.secondary-bg
+  .col-md-3
+    p dark
+    .sg-block.primary-bg.primary-dark
+hr
+.row.text-center
+  .col-md-3
+    h4 Grays
+  .col-md-3
+    p.gray-base-text gray-base
+    .sg-block.gray-base-bg
+  .col-md-3
+    p.gray-darker-text gray-darker
+    .sg-block.gray-darker-bg
+  .col-md-3
+    p.gray-dark-text gray-dark
+    .sg-block.gray-dark-bg
+hr
+.row.text-center
+  .col-md-3
+    h4 Grays
+  .col-md-3
+    p.gray-base-text gray
+    .sg-block.gray-bg
+  .col-md-3
+    p.gray-light-text gray-light
+    .sg-block.gray-light-bg
+  .col-md-3
+    p.gray-lighter-text gray-lighter
+    .sg-block.gray-lighter-bg
+
+
+.page-header
+  h2 id="typography" Typography
 
 h3 Headings
 
@@ -27,91 +69,249 @@ h3 Lists
 
 h3 Links
 
+
+.page-header
+  h2 id="navigation" Navigation
+
+h3 Navbars
+nav.navbar.navbar-default
+  .container
+    .navbar-header
+      button.navbar-toggle.collapsed data-target=".navbar-collapse" data-toggle="collapse" type="button"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand href="#"  Project name
+    .navbar-collapse.collapse
+      ul.nav.navbar-nav
+        li.active
+          a href="#"  Home
+        li
+          a href="#about"  About
+        li
+          a href="#contact"  Contact
+        li.dropdown
+          a.dropdown-toggle data-toggle="dropdown" href="#"
+            | Dropdown
+            span.caret
+          ul.dropdown-menu role="menu"
+            li
+              a href="#"  Action
+            li
+              a href="#"  Another action
+            li
+              a href="#"  Something else here
+            li.divider
+            li.dropdown-header Nav header
+            li
+              a href="#"  Separated link
+            li
+              a href="#"  One more separated link
+
+nav.navbar.navbar-inverse
+  .container
+    .navbar-header
+      button.navbar-toggle.collapsed data-target=".navbar-collapse" data-toggle="collapse" type="button"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand href="#"  Project name
+    .navbar-collapse.collapse
+      ul.nav.navbar-nav
+        li.active
+          a href="#"  Home
+        li
+          a href="#about"  About
+        li
+          a href="#contact"  Contact
+        li.dropdown
+          a.dropdown-toggle data-toggle="dropdown" href="#"
+            | Dropdown
+            span.caret
+          ul.dropdown-menu role="menu"
+            li
+              a href="#"  Action
+            li
+              a href="#"  Another action
+            li
+              a href="#"  Something else here
+            li.divider
+            li.dropdown-header Nav header
+            li
+              a href="#"  Separated link
+            li
+              a href="#"  One more separated link
+
+
+h3 Navs
+ul.nav.nav-tabs role="tablist"
+  li.active role="presentation"
+    a href="#"  Home
+  li role="presentation"
+    a href="#"  Profile
+  li role="presentation"
+    a href="#"  Messages
+ul.nav.nav-pills role="tablist"
+  li.active role="presentation"
+    a href="#"  Home
+  li role="presentation"
+    a href="#"  Profile
+  li role="presentation"
+    a href="#"  Messages
+
+
+
+.page-header
+  h2 id="buttons" Buttons
+
+p
+  button.btn.btn-lg.btn-default type="button"  Default
+  button.btn.btn-lg.btn-primary type="button"  Primary
+  button.btn.btn-lg.btn-secondary type="button"  Secondary
+  button.btn.btn-lg.btn-success type="button"  Success
+  button.btn.btn-lg.btn-info type="button"  Info
+  button.btn.btn-lg.btn-warning type="button"  Warning
+  button.btn.btn-lg.btn-danger type="button"  Danger
+  button.btn.btn-lg.btn-link type="button"  Link
+p
+  button.btn.btn-default type="button"  Default
+  button.btn.btn-primary type="button"  Primary
+  button.btn.btn-success type="button"  Success
+  button.btn.btn-info type="button"  Info
+  button.btn.btn-warning type="button"  Warning
+  button.btn.btn-danger type="button"  Danger
+  button.btn.btn-link type="button"  Link
+p
+  button.btn.btn-sm.btn-default type="button"  Default
+  button.btn.btn-sm.btn-primary type="button"  Primary
+  button.btn.btn-sm.btn-success type="button"  Success
+  button.btn.btn-sm.btn-info type="button"  Info
+  button.btn.btn-sm.btn-warning type="button"  Warning
+  button.btn.btn-sm.btn-danger type="button"  Danger
+  button.btn.btn-sm.btn-link type="button"  Link
+p
+  button.btn.btn-xs.btn-default type="button"  Default
+  button.btn.btn-xs.btn-primary type="button"  Primary
+  button.btn.btn-xs.btn-success type="button"  Success
+  button.btn.btn-xs.btn-info type="button"  Info
+  button.btn.btn-xs.btn-warning type="button"  Warning
+  button.btn.btn-xs.btn-danger type="button"  Danger
+  button.btn.btn-xs.btn-link type="button"  Link
+
+.page-header
+  h2 id="forms" Forms
+
+form role="form"
+  .form-group
+    label for="exampleInputEmail1"  Email address
+    input#exampleInputEmail1.form-control placeholder=("Enter email") type="email"
+  .form-group
+    label for="exampleInputPassword1"  Password
+    input#exampleInputPassword1.form-control placeholder="Password" type="password"
+  .form-group
+    label for="exampleInputFile"  File input
+    input#exampleInputFile type="file" /
+    p.help-block Example block-level help text here.
+  .checkbox
+    label
+      input type="checkbox" /
+      | Check me out
+  button.btn.btn-default type="submit"  Submit
+
+.page-header
+  h2 id="labels" Labels
+h1
+  span.label.label-default Default
+  span.label.label-primary Primary
+  span.label.label-secondary Secondary
+  span.label.label-success Success
+  span.label.label-info Info
+  span.label.label-warning Warning
+  span.label.label-danger Danger
+h2
+  span.label.label-default Default
+  span.label.label-primary Primary
+  span.label.label-success Success
+  span.label.label-info Info
+  span.label.label-warning Warning
+  span.label.label-danger Danger
+h3
+  span.label.label-default Default
+  span.label.label-primary Primary
+  span.label.label-success Success
+  span.label.label-info Info
+  span.label.label-warning Warning
+  span.label.label-danger Danger
+h4
+  span.label.label-default Default
+  span.label.label-primary Primary
+  span.label.label-success Success
+  span.label.label-info Info
+  span.label.label-warning Warning
+  span.label.label-danger Danger
+h5
+  span.label.label-default Default
+  span.label.label-primary Primary
+  span.label.label-success Success
+  span.label.label-info Info
+  span.label.label-warning Warning
+  span.label.label-danger Danger
+h6
+  span.label.label-default Default
+  span.label.label-primary Primary
+  span.label.label-success Success
+  span.label.label-info Info
+  span.label.label-warning Warning
+  span.label.label-danger Danger
+p
+  span.label.label-default Default
+  span.label.label-primary Primary
+  span.label.label-success Success
+  span.label.label-info Info
+  span.label.label-warning Warning
+  span.label.label-danger Danger
+
+
+.page-header
+  h2 id="containers" Containers
+
+h3 Thumbnails
 .row
-  .col-md-12
-    h2 id="colors" Colors
-.row
-  .col-md-3
-    p Primary
-  .col-md-3.text-center
-    p normal
-    .sg-block.primary-bg
-  .col-md-3.text-center
-    p light
-    .sg-block.primary-bg.primary-light
-  .col-md-3.text-center
-    p dark
-    .sg-block.primary-bg.primary-dark
+  .col-sm-6.col-md-4
+    .thumbnail
+      img.img-responsive alt="..." src="http://placehold.it/500x350"
+      .caption
+        h3 Bullshit Bingo
+        p Web application entièrement temps réel permettant de créer ses grilles de bingo et jouer au bullshit bingo à plusieurs.
+        p
+          span.label.label-default Meteor
+          span.label.label-default Temps réel
+          span.label.label-default Web application
+        p.text-right
+          a.btn.btn-primary href="#" role="button"  Je veux en savoir plus !
+  .col-sm-6.col-md-4
+    .thumbnail
+      img alt="..." src="http://placehold.it/500x350"
+      .caption
+        h3 Thumbnail label
+        p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+        p
+          a.btn.btn-primary href="#" role="button"  Button
+          a.btn.btn-default href="#" role="button"  Button
 
 
 
 
-.row
-  .col-md-12
-    h2 id="navigation" Navigation
-
-.row
-  .col-md-12
-    h2 id="buttons" Buttons
-
-    button.btn.btn-default type="button" Default
-    button.btn.btn-primary type="button" Primary
-    button.btn.btn-success type="button" Success
-    button.btn.btn-info type="button" Info
-    button.btn.btn-warning type="button" Warning
-    button.btn.btn-danger type="button" Danger
-    button.btn.btn-link type="button" Link
-
-.row
-  .col-md-12
-    h2 id="forms" Forms
-
-.row
-  .col-md-12
-    h2 id="containers" Containers
-
-
-.container.theme-showcase role="main" 
+.container.theme-showcase role="main"
   .jumbotron
     h1 Hello, world!
     p This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.
     p
       a.btn.btn-primary.btn-lg href="#" role="button"  Learn more &raquo;
 
-  .page-header
-    h1 Buttons
-  p
-    button.btn.btn-lg.btn-default type="button"  Default
-    button.btn.btn-lg.btn-primary type="button"  Primary
-    button.btn.btn-lg.btn-success type="button"  Success
-    button.btn.btn-lg.btn-info type="button"  Info
-    button.btn.btn-lg.btn-warning type="button"  Warning
-    button.btn.btn-lg.btn-danger type="button"  Danger
-    button.btn.btn-lg.btn-link type="button"  Link
-  p
-    button.btn.btn-default type="button"  Default
-    button.btn.btn-primary type="button"  Primary
-    button.btn.btn-success type="button"  Success
-    button.btn.btn-info type="button"  Info
-    button.btn.btn-warning type="button"  Warning
-    button.btn.btn-danger type="button"  Danger
-    button.btn.btn-link type="button"  Link
-  p
-    button.btn.btn-sm.btn-default type="button"  Default
-    button.btn.btn-sm.btn-primary type="button"  Primary
-    button.btn.btn-sm.btn-success type="button"  Success
-    button.btn.btn-sm.btn-info type="button"  Info
-    button.btn.btn-sm.btn-warning type="button"  Warning
-    button.btn.btn-sm.btn-danger type="button"  Danger
-    button.btn.btn-sm.btn-link type="button"  Link
-  p
-    button.btn.btn-xs.btn-default type="button"  Default
-    button.btn.btn-xs.btn-primary type="button"  Primary
-    button.btn.btn-xs.btn-success type="button"  Success
-    button.btn.btn-xs.btn-info type="button"  Info
-    button.btn.btn-xs.btn-warning type="button"  Warning
-    button.btn.btn-xs.btn-danger type="button"  Danger
-    button.btn.btn-xs.btn-link type="button"  Link
+
 
   .page-header
     h1 Tables
@@ -216,77 +416,22 @@ h3 Links
             td colspan="2"  Larry the Bird
             td @twitter
 
-  .page-header
-    h1 Thumbnails
-    img.img-thumbnail alt="A generic square placeholder image with a white border around it), making it resemble a photograph taken with an old instant camera" data-src="holder.js/200x200" 
-  
-  .page-header
-    h1 Labels
-  h1
-    span.label.label-default Default
-    span.label.label-primary Primary
-    span.label.label-success Success
-    span.label.label-info Info
-    span.label.label-warning Warning
-    span.label.label-danger Danger
-  h2
-    span.label.label-default Default
-    span.label.label-primary Primary
-    span.label.label-success Success
-    span.label.label-info Info
-    span.label.label-warning Warning
-    span.label.label-danger Danger
-  h3
-    span.label.label-default Default
-    span.label.label-primary Primary
-    span.label.label-success Success
-    span.label.label-info Info
-    span.label.label-warning Warning
-    span.label.label-danger Danger
-  h4
-    span.label.label-default Default
-    span.label.label-primary Primary
-    span.label.label-success Success
-    span.label.label-info Info
-    span.label.label-warning Warning
-    span.label.label-danger Danger
-  h5
-    span.label.label-default Default
-    span.label.label-primary Primary
-    span.label.label-success Success
-    span.label.label-info Info
-    span.label.label-warning Warning
-    span.label.label-danger Danger
-  h6
-    span.label.label-default Default
-    span.label.label-primary Primary
-    span.label.label-success Success
-    span.label.label-info Info
-    span.label.label-warning Warning
-    span.label.label-danger Danger
-  p
-    span.label.label-default Default
-    span.label.label-primary Primary
-    span.label.label-success Success
-    span.label.label-info Info
-    span.label.label-warning Warning
-    span.label.label-danger Danger
 
   .page-header
     h1 Badges
   p
-    a href="#" 
+    a href="#"
       | Inbox
       span.badge 42
-  ul.nav.nav-pills role="tablist" 
-    li.active role="presentation" 
-      a href="#" 
+  ul.nav.nav-pills role="tablist"
+    li.active role="presentation"
+      a href="#"
         | Home
         span.badge 42
-    li role="presentation" 
+    li role="presentation"
       a href="#"  Profile
-    li role="presentation" 
-      a href="#" 
+    li role="presentation"
+      a href="#"
         | Messages
         span.badge 3
 
@@ -294,149 +439,62 @@ h3 Links
   .page-header
     h1 Dropdown menus
   .dropdown.theme-dropdown.clearfix
-    a#dropdownMenu1.dropdown-toggle data-toggle="dropdown" href="#" role="button" 
+    a#dropdownMenu1.dropdown-toggle data-toggle="dropdown" href="#" role="button"
       | Dropdown
       span.caret
-    ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu" 
-      li.active role="presentation" 
+    ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu"
+      li.active role="presentation"
         a href="#" role="menuitem" tabindex="-1"  Action
-      li role="presentation" 
+      li role="presentation"
         a href="#" role="menuitem" tabindex="-1"  Another action
-      li role="presentation" 
+      li role="presentation"
         a href="#" role="menuitem" tabindex="-1"  Something else here
-      li.divider role="presentation" 
-      li role="presentation" 
+      li.divider role="presentation"
+      li role="presentation"
         a href="#" role="menuitem" tabindex="-1"  Separated link
 
-  .page-header
-    h1 Navs
-  ul.nav.nav-tabs role="tablist" 
-    li.active role="presentation" 
-      a href="#"  Home
-    li role="presentation" 
-      a href="#"  Profile
-    li role="presentation" 
-      a href="#"  Messages
-  ul.nav.nav-pills role="tablist" 
-    li.active role="presentation" 
-      a href="#"  Home
-    li role="presentation" 
-      a href="#"  Profile
-    li role="presentation" 
-      a href="#"  Messages
-  .page-header
-    h1 Navbars
-  nav.navbar.navbar-default
-    .container
-      .navbar-header
-        button.navbar-toggle.collapsed data-target=".navbar-collapse" data-toggle="collapse" type="button" 
-          span.sr-only Toggle navigation
-          span.icon-bar
-          span.icon-bar
-          span.icon-bar
-        a.navbar-brand href="#"  Project name
-      .navbar-collapse.collapse
-        ul.nav.navbar-nav
-          li.active
-            a href="#"  Home
-          li
-            a href="#about"  About
-          li
-            a href="#contact"  Contact
-          li.dropdown
-            a.dropdown-toggle data-toggle="dropdown" href="#" 
-              | Dropdown
-              span.caret
-            ul.dropdown-menu role="menu" 
-              li
-                a href="#"  Action
-              li
-                a href="#"  Another action
-              li
-                a href="#"  Something else here
-              li.divider
-              li.dropdown-header Nav header
-              li
-                a href="#"  Separated link
-              li
-                a href="#"  One more separated link
-
-  nav.navbar.navbar-inverse
-    .container
-      .navbar-header
-        button.navbar-toggle.collapsed data-target=".navbar-collapse" data-toggle="collapse" type="button" 
-          span.sr-only Toggle navigation
-          span.icon-bar
-          span.icon-bar
-          span.icon-bar
-        a.navbar-brand href="#"  Project name
-      .navbar-collapse.collapse
-        ul.nav.navbar-nav
-          li.active
-            a href="#"  Home
-          li
-            a href="#about"  About
-          li
-            a href="#contact"  Contact
-          li.dropdown
-            a.dropdown-toggle data-toggle="dropdown" href="#" 
-              | Dropdown
-              span.caret
-            ul.dropdown-menu role="menu" 
-              li
-                a href="#"  Action
-              li
-                a href="#"  Another action
-              li
-                a href="#"  Something else here
-              li.divider
-              li.dropdown-header Nav header
-              li
-                a href="#"  Separated link
-              li
-                a href="#"  One more separated link
 
   .page-header
     h1 Alerts
-  .alert.alert-success role="alert" 
+  .alert.alert-success role="alert"
     strong Well done!
     | You successfully read this important alert message.
-  .alert.alert-info role="alert" 
+  .alert.alert-info role="alert"
     strong Heads up!
     | This alert needs your attention, but it's not super important.
-  .alert.alert-warning role="alert" 
+  .alert.alert-warning role="alert"
     strong Warning!
     | Best check yo self, you're not looking too good.
-  .alert.alert-danger role="alert" 
+  .alert.alert-danger role="alert"
     strong Oh snap!
     | Change a few things up and try submitting again.
 
   .page-header
     h1 Progress bars
   .progress
-    .progress-bar aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" role="progressbar" style=("width: 60%;") 
+    .progress-bar aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" role="progressbar" style=("width: 60%;")
       span.sr-only 60% Complete
   .progress
-    .progress-bar.progress-bar-success aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" style=("width: 40%") 
+    .progress-bar.progress-bar-success aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" style=("width: 40%")
       span.sr-only 40% Complete (success)
   .progress
-    .progress-bar.progress-bar-info aria-valuemax="100" aria-valuemin="0" aria-valuenow="20" role="progressbar" style=("width: 20%") 
+    .progress-bar.progress-bar-info aria-valuemax="100" aria-valuemin="0" aria-valuenow="20" role="progressbar" style=("width: 20%")
       span.sr-only 20% Complete
   .progress
-    .progress-bar.progress-bar-warning aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" role="progressbar" style=("width: 60%") 
+    .progress-bar.progress-bar-warning aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" role="progressbar" style=("width: 60%")
       span.sr-only 60% Complete (warning)
   .progress
-    .progress-bar.progress-bar-danger aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar" style=("width: 80%") 
+    .progress-bar.progress-bar-danger aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar" style=("width: 80%")
       span.sr-only 80% Complete (danger)
   .progress
-    .progress-bar.progress-bar-striped aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" role="progressbar" style=("width: 60%") 
+    .progress-bar.progress-bar-striped aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" role="progressbar" style=("width: 60%")
       span.sr-only 60% Complete
   .progress
-    .progress-bar.progress-bar-success style=("width: 35%") 
+    .progress-bar.progress-bar-success style=("width: 35%")
       span.sr-only 35% Complete (success)
-    .progress-bar.progress-bar-warning style=("width: 20%") 
+    .progress-bar.progress-bar-warning style=("width: 20%")
       span.sr-only 20% Complete (warning)
-    .progress-bar.progress-bar-danger style=("width: 10%") 
+    .progress-bar.progress-bar-danger style=("width: 10%")
       span.sr-only 10% Complete (danger)
 
   .page-header
@@ -452,7 +510,7 @@ h3 Links
 
     .col-sm-4
       .list-group
-        a.list-group-item.active href="#" 
+        a.list-group-item.active href="#"
           | Cras justo odio
         a.list-group-item href="#"  Dapibus ac facilisis in
         a.list-group-item href="#"  Morbi leo risus
@@ -461,13 +519,13 @@ h3 Links
 
     .col-sm-4
       .list-group
-        a.list-group-item.active href="#" 
+        a.list-group-item.active href="#"
           h4.list-group-item-heading List group item heading
           p.list-group-item-text Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-        a.list-group-item href="#" 
+        a.list-group-item href="#"
           h4.list-group-item-heading List group item heading
           p.list-group-item-text Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-        a.list-group-item href="#" 
+        a.list-group-item href="#"
           h4.list-group-item-heading List group item heading
           p.list-group-item-text Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
 
@@ -516,25 +574,25 @@ h3 Links
     h1 Wells
   .well
     p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.
-  
+
   .page-header
     h1 Carousel
-  #carousel-example-generic.carousel.slide data-ride="carousel" 
+  #carousel-example-generic.carousel.slide data-ride="carousel"
     ol.carousel-indicators
-      li.active data-slide-to="0" data-target="#carousel-example-generic" 
-      li data-slide-to="1" data-target="#carousel-example-generic" 
-      li data-slide-to="2" data-target="#carousel-example-generic" 
-    .carousel-inner role="listbox" 
+      li.active data-slide-to="0" data-target="#carousel-example-generic"
+      li data-slide-to="1" data-target="#carousel-example-generic"
+      li data-slide-to="2" data-target="#carousel-example-generic"
+    .carousel-inner role="listbox"
       .item.active
-        img alt=("First slide") data-src=("holder.js/1140x500/auto/#777:#555/text:First slide") 
+        img alt=("First slide") data-src=("holder.js/1140x500/auto/#777:#555/text:First slide")
       .item
-        img alt=("Second slide") data-src=("holder.js/1140x500/auto/#666:#444/text:Second slide") 
+        img alt=("Second slide") data-src=("holder.js/1140x500/auto/#666:#444/text:Second slide")
       .item
-        img alt=("Third slide") data-src=("holder.js/1140x500/auto/#555:#333/text:Third slide") 
-    a.left.carousel-control data-slide="prev" href="#carousel-example-generic" role="button" 
+        img alt=("Third slide") data-src=("holder.js/1140x500/auto/#555:#333/text:Third slide")
+    a.left.carousel-control data-slide="prev" href="#carousel-example-generic" role="button"
       span.glyphicon.glyphicon-chevron-left
       span.sr-only Previous
-    a.right.carousel-control data-slide="next" href="#carousel-example-generic" role="button" 
+    a.right.carousel-control data-slide="next" href="#carousel-example-generic" role="button"
       span.glyphicon.glyphicon-chevron-right
       span.sr-only Next
 

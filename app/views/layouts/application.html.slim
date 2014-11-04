@@ -4,7 +4,7 @@ html lang="#{I18n.locale}"
     title= @seo_title
     meta name="description" content="#{@seo_description}"
     meta name="keywords" content="#{@seo_keywords}"
-    meta name="author" content="Studio HB, Agence Web Ruby On Rails Lyon"
+    meta name="author" content="Claire Zuliani"
     meta http-equiv="content-type" content="text/html;charset=UTF-8"
     meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
@@ -12,6 +12,7 @@ html lang="#{I18n.locale}"
     = robots_indexation_prevention
 
     = stylesheet_link_tag 'application', media: 'all'
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Montserrat:700,400|Roboto+Slab:400,700'
 
     /[if lt IE 9]
       script src="http://html5shim.googlecode.com/svn/trunk/html5.js"
@@ -23,19 +24,25 @@ html lang="#{I18n.locale}"
     = render_document_ready_scripts
   body
     header
-      .container
-        nav.navbar.navbar-inverse role="navigation"
+      nav.navbar.navbar-inverse.navbar-fixed-top role="navigation"
+        .container
           .navbar-header
-            = link_to "PROJET", root_path, class: "navbar-brand"
+            button.navbar-toggle type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse"
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            = link_to "Claire Zuliani", root_path, class: "navbar-brand"
           .collapse.navbar-collapse.navbar-ex1-collapse
-            ul.nav.navbar-nav
-              = menu_link 'Accueil', root_path, section: :home, title: "Retour à l'accueil"
-              = menu_link 'Administration', admin_root_path, section: :sign_in_admin, title: "Retour à l'accueil"
+            ul.nav.navbar-nav.navbar-right
+              = menu_link 'Home', root_path, section: :home, title: "Retour à l'accueil"
+              = menu_link 'Projets', root_path, section: :projects, title: "Je veux voir les projets"
+              = menu_link 'Contact', root_path, section: :contact, title: "En savoir plus sur moi"
     = raw flash_messages
-    .container
-      = yield
+
+    = yield
 
 
-    footer
+    footer.bg-primary
       .container
         hr © CZ
