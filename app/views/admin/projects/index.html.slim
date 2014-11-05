@@ -1,0 +1,35 @@
+= render :layout => 'layout_index' do
+
+  table.table.table-striped.table-hover
+    thead
+      tr
+        th= shb_sort 'sort_by_title', label: 'Titre'
+        th= shb_sort 'sort_by_category', label: 'Catégorie'
+        th Image
+        th= shb_sort 'sort_by_slug', label: 'URL'
+        th
+    tbody
+      - @projects.each do |project|
+        tr
+          td= link_to project.title, edit_admin_project_path(project)
+          td= project.category.presence
+          td
+            - if project.pictures.any?
+              = image_tag project.pictures.first.asset.url(:thumb)
+            - else
+              span.text-muted -
+          td: small= project.slug
+
+          td.action-btns
+            =' link_to raw("<span class='glyphicon glyphicon-pencil'></span>"), edit_admin_project_path(project),\
+              class: "btn btn-sm btn-info", title: "Editer"
+            = link_to raw("<span class='glyphicon glyphicon-trash'></span>"), admin_project_path(project), \
+              method: :delete, data: {confirm: "Confirmer la suppression ?"}, title: "Supprimer", class: "btn btn-sm btn-danger"
+
+      - if @projects.empty?
+        tr
+          td colspan="8"
+            p.text-center: em.text-muted Aucun résultat
+
+
+  = will_paginate @projects, renderer: BootstrapPagination::Rails

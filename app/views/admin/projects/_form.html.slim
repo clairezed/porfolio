@@ -1,0 +1,89 @@
+/ = f.form_errors
+.form-group
+  = f.label :title, class: "control-label col-xs-4"
+  .col-xs-6
+    = f.text_field :title, class: "form-control", autofocus: true
+/ / = f.select :category_id, Categories::Post.order(position: :asc).collect{|c| [c.title, c.id]}, {include_blank: true}, {}, {class: "required"}
+.form-group
+  = f.label :description, class: "control-label col-xs-4"
+  .col-xs-6
+    = f.text_area :description, class: "form-control"
+/ / = f.text_area :description, class: "redactor"
+/ = f.text_area :description#, {rows: 2, class: "controls-large"}
+/ = f.text_field :link#, {class: "controls-large"}
+
+/ fieldset
+/   legend Diaporama
+/   table.table id="pictures_table"
+/     tr
+/       th Position
+/       th Image
+/       th Alt
+/       th Légende
+/       th Suppr?
+/     tbody#picture_list
+/       / = render partial: "picture_list"
+/     tbody#new_pictures
+
+/     tr
+/       td colspan="5"
+/         /= link_to "javascript:void(0)", class: "btn btn-info btn-sm", onclick: "get_picture_form()" do
+/         = link_to "javascript:void(0)", \
+/                     class: "btn btn-info btn-sm", \
+/                     onclick: "get_picture_form()", \
+/                     "data-path" => get_picture_form_admin_projects_path, \
+/                     id: "get_picture_form_link" do
+/           span.glyphicon.glyphicon-plus'
+/           | Ajouter une image
+
+
+/ fieldset
+/   legend Référencement
+/   = f.text_field :slug, {}, {class: "required"}
+/   = f.text_field :seo_title
+/   = f.text_field :seo_keywords
+/   = f.text_area :seo_description
+
+.form-group
+  .form-actions
+    hr
+    =' f.submit button_name, class: "btn btn-primary", style: "margin-right: 2px", id: "submit_and_leave"
+    =' f.submit name: "continue", value: "#{button_name_2}", class: "btn btn-default", style: "margin-right: 2px", id: "submit_and_stay"
+    = link_to "Annuler", admin_projects_path, class: "btn"
+
+/ .form-group
+/   label.form-label-default
+/   .controls-default
+/     small: em.text-muted Les champs marqués d'une * sont obligatoires
+
+/ coffee:
+/   idx = 1
+/   @get_picture_form = ->
+/     $.ajax $("#get_picture_form_link").data("path"),
+/       data: {idx: idx},
+/       type: "get",
+/       dataType: "html",
+/       success: (html) ->
+/         $("#new_pictures").append(html)
+/         idx += 1
+/       error: ->
+/         alert("Une erreur est intervenue au chargement d'une nouvelle image")
+/   @sort_picture = (select) ->
+/     $.ajax $(select).data("path"),
+/       data: {position: $(select).val()},
+/       type: "patch",
+/       dataType: "html",
+/       success: (html) ->
+/         $("#picture_list").html(html)
+/         check_change_on_picture()
+/         idx += 1
+/       error: ->
+/         alert("Une erreur est intervenue au chargement d'une nouvelle image")
+
+/   # nécécessaire de mettre cette fonction afin de la rappeler à la fin de l'appel ajax
+/   check_change_on_picture = ->
+/     $("#picture_list input").on "change", ->
+/       $("#picture_list select").attr("disabled", true).attr("title", "Veuillez enregistrer vos modifications avant de modifier la position de cette image")
+
+/   $ ->
+/     check_change_on_picture()

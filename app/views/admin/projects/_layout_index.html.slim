@@ -1,0 +1,34 @@
+= render layout: "layout" do
+  small= I18n.t("results", count: @projects.count)
+
+  /Sidebar
+  = link_to new_admin_project_path, class: "btn btn-info btn-sm pull-right" do
+    span.glyphicon.glyphicon-plus'
+    | Nouveau projet
+
+  .row
+    aside.content-left
+      .well.well-sm
+        fieldset
+          legend Filtre
+          = form_tag admin_projects_path, method: :get, id: "projects_filters" do
+            .form-group
+              label.control-label Rechercher
+              =' text_field_tag :by_title, params[:by_title], \
+                class: "form-control", placeholder: "titre"
+            / .form-group
+            /   label.control-label Rubrique
+            /   = select_tag :by_category_id, \
+            /               options_for_select(Categories::Post.order(position: :asc).collect{|c| [c.title, c.id]}, params[:by_category_id]), \
+            /               include_blank: true,\
+            /               class: "form-control", \
+            /               onchange: "$('#projects_filters').submit()"
+
+            .form-group
+              = submit_tag "Appliquer", class: "btn btn-default btn-sm"
+              = link_to admin_projects_path, class: "btn btn-sm" do
+                span.glyphicon.glyphicon-repeat
+                |  Réinitialiser
+
+    .content-main
+      = yield

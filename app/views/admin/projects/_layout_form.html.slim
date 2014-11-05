@@ -1,0 +1,16 @@
+= render layout: "layout" do
+
+  .row
+    aside.content-left
+      hr
+      = link_to raw("<span class='glyphicon glyphicon-arrow-left'></span> Retour à la liste"),\
+        admin_projects_path, class: 'btn btn-default'
+
+      - if !@project.new_record?
+        hr
+        dl
+          dt Date création :
+          dd= I18n.l @project.created_at, format: :normal
+
+    .content-main
+      = yield

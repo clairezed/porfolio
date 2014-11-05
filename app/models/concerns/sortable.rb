@@ -40,4 +40,4 @@ module Sortable
   end
 
 
-extend
+end

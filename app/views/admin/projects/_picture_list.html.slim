@@ -1,0 +1,16 @@
+- max_position    = @project.pictures.map( &:position ).compact.max || 1
+- position_select = (1..max_position).map {|i| [i,i] }
+-  @project.pictures.each_with_index do |picture, idx|
+  = fields_for "project[pictures_attributes]", picture, index: idx do |f_pict|
+    = f_pict.hidden_field :id
+    tr
+      td
+        = f_pict.select :position, position_select, {}, class: "form-control",\
+          style: "width: 70px", onchange: "sort_picture(this)",\
+          "data-path" => sort_picture_admin_blog_project_path(@project, picture_id: f_pict.object.id)
+      td
+        = link_to image_tag(f_pict.object.asset.url(:thumb_detail)), f_pict.object.asset.url(:original), target: "_blank"
+        span style="padding-left: 10px"= "(Avatar)" if idx == 0
+      td= f_pict.text_field :alt, class: "form-control"
+      td= f_pict.text_field :title, class: "form-control"
+      td= f_pict.check_box "_destroy"

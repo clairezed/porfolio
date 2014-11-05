@@ -10,28 +10,31 @@ section.bg-primary
     .row
       .col-sm-3.col-sm-offset-9.col-xs-5.col-xs-offset-7
         h6.text-right.section-header
-          | Et aussi : je n'avais pas envie de mettre d'image cahe-misère en fond de page d'accueil.
+          | Et aussi : je n'avais pas envie de mettre d'image cache-misère en fond de page d'accueil.
 
 section
   .container
     h2.text-center.section-header Projets triés sur le volet
 
     .row
+      - @projects.each do |project|
+        .col-sm-6.col-md-4
+          .thumbnail
+            img.img-responsive alt="..." src="http://placehold.it/500x350"
+            .caption
+              h3 = project.title
+              p = project.description
+              p
+                span.label.label-default Meteor
+                span.label.label-default Temps réel
+                span.label.label-default Web application
+              p.text-right
+                a.btn.btn-primary href="#" role="button"
+                  =' "#{project.title} ?"
+                  span.glyphicon.glyphicon-play
       .col-sm-6.col-md-4
         .thumbnail
-          img.img-responsive alt="..." src="http://placehold.it/500x350"
-          .caption
-            h3 Bullshit Bingo
-            p Web application entièrement temps réel permettant de créer ses grilles de bingo et jouer au bullshit bingo à plusieurs.
-            p
-              span.label.label-default Meteor
-              span.label.label-default Temps réel
-              span.label.label-default Web application
-            p.text-right
-              a.btn.btn-primary href="#" role="button"  Je veux en savoir plus !
-      .col-sm-6.col-md-4
-        .thumbnail
-          img.img-responsive alt="..." src="http://placehold.it/500x350"
+          img.img-responsive alt="..." src="http://placehold.it/400x275"
           .caption
             h3 Bullshit Bingo
             p Web application entièrement temps réel permettant de créer ses grilles de bingo et jouer au bullshit bingo à plusieurs.
@@ -56,20 +59,19 @@ section
 
 section.bg-primary
   .container
-    h2.text-center.section-header Pour en savoir plus
+    h2.text-center.section-header A propos
 
     .row
       .col-md-6
-        h3.text-center 
+        h3.text-center.small-margin-below
           | Une développeuse qui aime l'orange
-          small Et les ananas
         .row
-          .col-md-3
-            img.img-responsive alt="..." src="http://placehold.it/200x200"
-          .col-md-3
+          .col-sm-4.medium-margin-below
+            img.img-responsive.img-circle alt="..." src="http://placehold.it/200x200"
+          .col-sm-8.medium-margin-below
             p Dans le développement web depuis 2012 après une incursion dans le milieu culturel, je me suis spécialisée en Ruby on Rails et m'intéresse aussi à plein de frameworks javascript.
-      .col-md-6.well
-        h3.text-center On fait quelque chose ensemble ?
+      .col-md-6.well.clearfix
+        h3.text-center.small-margin-below On fait quelque chose ensemble ?
         form role="form"
           .form-group
             label for="exampleInputEmail1"  Adresse mail
@@ -80,5 +82,5 @@ section.bg-primary
           .form-group
             label for="exampleInputFile"  Votre message
             textarea#exampleInputFile.form-control rows="3"
-            p.help-block Example block-level help text here.
-          button.btn.btn-secondary type="submit"  Submit
+          button.btn.btn-secondary.text-right.pull-right type="submit"
+            'C'est parti !

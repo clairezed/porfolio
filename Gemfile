@@ -16,6 +16,7 @@ gem 'bootstrap-sass'
 
 #= ACTIVE RECORD =======================
 gem 'devise', '~> 3.4.1'
+gem 'acts_as_list', '~> 0.5.0'
 
 #= VIEWS ===============================
 gem 'will_paginate', '~> 3.0.7'

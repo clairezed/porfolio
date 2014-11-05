@@ -1,0 +1,6 @@
+tr
+  td: span.text-muted -
+  td= file_field_tag "project[new_pictures][#{idx}][asset]", class: "form-control"
+  td= text_field_tag "project[new_pictures][#{idx}][alt]", nil, class: "form-control", placeholder: "Alt"
+  td= text_field_tag "project[new_pictures][#{idx}][title]", nil, class: "form-control", placeholder: "Légende"
+  td: span.text-muted -

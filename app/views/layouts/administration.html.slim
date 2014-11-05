@@ -15,12 +15,13 @@ html lang="#{I18n.locale}"
           span.icon-bar
           span.icon-bar
           span.icon-bar
-        = link_to "PROJET", admin_root_path, class: "navbar-brand"
+        = link_to "Portfolio", admin_root_path, class: "navbar-brand"
 
       .collapse.navbar-collapse.navbar-ex1-collapse
         ul.nav.navbar-nav
           = menu_link 'Accueil', admin_root_path, section: :home, title: "Retour à l'accueil"
         ul.nav.navbar-nav.navbar-right
+          = menu_link 'Projets', admin_projects_path, section: :projects, title: "projets"
           = menu_link root_path, section: nil, title: "Retour au site" do
             span.glyphicon.glyphicon-eject
           = menu_link destroy_admin_session_path, section: nil, title: "Se déconnecter", method: :delete do
