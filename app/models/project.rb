@@ -7,6 +7,8 @@ class Project < ActiveRecord::Base
 
   attr_accessor :picture_sent, :delete_picture
 
+  CATEGORIES = [:personnal, :agency].freeze
+
   # Associations =====================
 
   has_many :pictures, -> { order :position }, as: :assetable, class_name: "Asset::ProjectPicture", dependent: :destroy
@@ -34,6 +36,10 @@ class Project < ActiveRecord::Base
 
   # Class Methods =====================
 
+  def self.human_categories
+    CATEGORIES.inject({}) {|hash, k| hash.merge I18n.t(k, scope: :categories) => k }
+  end
+
   def self.apply_filters(params)
       klass = self
 
@@ -45,11 +51,15 @@ class Project < ActiveRecord::Base
       #   klass = klass.by_category_id(params[:by_category_id])
       # end
 
-      klass.apply_sorts(params)
+    klass.apply_sorts(params)
 
-    end
+  end
 
   # Instance Methods =====================
+
+  def human_category
+     I18n.t(self.category, scope: :categories)
+  end
 
   # def save_with_assets
   #   if self.document_sent
@@ -65,6 +75,7 @@ class Project < ActiveRecord::Base
   #     false
   #   end
   # end
+
 
 
   private #==========================================================

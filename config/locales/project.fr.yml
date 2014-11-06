@@ -1,0 +1,25 @@
+fr:
+  activerecord:
+    attributes:
+      project:
+        title:                      Le titre
+        description:                La description
+        description_confirmation:      Le mot de passe
+        current_description:           Le mot de passe actuel
+        new_description:               Le nouveau mot de passe
+        new_description_confirmation:  Le nouveau mot de passe
+
+
+  helpers:
+    label:
+      project:
+        title:                      Titre
+        description:                Description
+        description_confirmation:      Mot de passe (confirmation)
+        current_description:           Mot de passe actuel
+        new_description:               Nouveau mot de passe
+        new_description_confirmation:  Nouveau mot de passe (confirmation)
+
+  categories:
+    personnal:    Personnel
+    agency:       En agence
