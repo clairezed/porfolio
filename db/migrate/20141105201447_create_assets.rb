@@ -8,6 +8,7 @@ class CreateAssets < ActiveRecord::Migration
       t.string :title
       t.integer :position
       t.string :type
+      t.string :alt
 
       t.timestamps
     end

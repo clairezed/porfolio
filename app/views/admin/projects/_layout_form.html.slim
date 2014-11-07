@@ -10,7 +10,7 @@
         hr
         dl
           dt Date création :
-          dd= I18n.l @project.created_at, format: :normal
+          dd= I18n.l @project.created_at, format: :default
 
     .content-main
       = yield

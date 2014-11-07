@@ -7,6 +7,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :category
       t.string :link
       t.boolean :highlighted
+      t.boolean :visible
       t.string :slug
       t.string :seo_title
       t.string :seo_keywords

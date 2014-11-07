@@ -5,7 +5,7 @@ class Project < ActiveRecord::Base
   include Sortable
   include Seoable
 
-  attr_accessor :picture_sent, :delete_picture
+  # attr_accessor :picture_sent, :delete_picture
 
   CATEGORIES = [:personnal, :agency].freeze
 
@@ -48,7 +48,7 @@ class Project < ActiveRecord::Base
       end
 
       # if params[:by_category].present?
-      #   klass = klass.by_category_id(params[:by_category_id])
+      #   klass = klass.by_category(params[:by_category])
       # end
 
     klass.apply_sorts(params)

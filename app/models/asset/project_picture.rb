@@ -1,6 +1,6 @@
 class Asset::ProjectPicture < Asset
 
-  acts_as_list scope: :assetable
+  acts_as_list scope: :assetable_id
 
   has_attached_file :asset,
     styles: {

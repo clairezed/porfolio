@@ -7,7 +7,7 @@
       td
         = f_pict.select :position, position_select, {}, class: "form-control",\
           style: "width: 70px", onchange: "sort_picture(this)",\
-          "data-path" => sort_picture_admin_blog_project_path(@project, picture_id: f_pict.object.id)
+          "data-path" => sort_picture_admin_project_path(@project, picture_id: f_pict.object.id)
       td
         = link_to image_tag(f_pict.object.asset.url(:thumb_detail)), f_pict.object.asset.url(:original), target: "_blank"
         span style="padding-left: 10px"= "(Avatar)" if idx == 0
