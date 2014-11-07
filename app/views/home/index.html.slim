@@ -20,7 +20,8 @@ section
       - @projects.each do |project|
         .col-sm-6.col-md-4
           .thumbnail
-            img.img-responsive alt="..." src="http://placehold.it/500x350"
+            = image_tag project.pictures.first.asset.url(:list), class:"img-responsive", alt:"{#project.pictures.first.asset.alt}"
+            / img.img-responsive alt="..." src="http://placehold.it/500x350"
             .caption
               h3 = project.title
               p = project.description

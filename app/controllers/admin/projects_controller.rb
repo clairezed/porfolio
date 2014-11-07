@@ -15,6 +15,7 @@ class Admin::ProjectsController < Admin::BaseController
     @project = Project.new(project_params)
     if @project.save
       (params[:project][:new_pictures] || []).each do |idx, picture_params|
+        raise picture_params.inspect
         @project.pictures << Asset::ProjectPicture.new(picture_params)
       end
       flash[:notice] = "La référence a été créée avec succès"

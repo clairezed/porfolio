@@ -11,6 +11,23 @@
   = f.label :description, class: "control-label col-xs-4"
   .col-xs-6
     = f.text_area :description, class: "form-control"
+
+.form-group
+  = f.label :deployed_at, class: "control-label col-xs-4"
+  .col-xs-6
+
+.form-group
+  label.checkbox-inline.control-label.col-xs-4
+    =' f.check_box :highlighted
+    ' Mettre en avant
+
+.form-group
+  label.checkbox-inline.control-label.col-xs-4
+    =' f.check_box :visible
+    ' Visible
+
+
+
 / / = f.text_area :description, class: "redactor"
 
 / = f.text_area :description#, {rows: 2, class: "controls-large"}
@@ -55,10 +72,6 @@ fieldset
     =' f.submit name: "continue", value: "#{button_name_2}", class: "btn btn-default", style: "margin-right: 2px", id: "submit_and_stay"
     = link_to "Annuler", admin_projects_path, class: "btn"
 
-/ .form-group
-/   label.form-label-default
-/   .controls-default
-/     small: em.text-muted Les champs marqués d'une * sont obligatoires
 
 coffee:
   idx = 1
