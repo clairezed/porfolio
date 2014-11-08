@@ -3,29 +3,66 @@
   = f.label :title, class: "control-label col-xs-4"
   .col-xs-8
     = f.text_field :title, class: "form-control", autofocus: true
+
+.form-group
+  = f.label :teaser, class: "control-label col-xs-4"
+  .col-xs-8
+    = f.text_field :teaser, class: "form-control", autofocus: true
+
 .form-group
   = f.label :category, class: "control-label col-xs-4"
   .col-xs-4
     = f.select :category, Project.human_categories, {prompt: "Choisir"}, {class: "form-control"}
+
 .form-group
   = f.label :description, class: "control-label col-xs-4"
   .col-xs-6
     = f.text_area :description, class: "form-control"
 
-.form-group
+.form-group.inline
   = f.label :deployed_at, class: "control-label col-xs-4"
   .col-xs-6
+    = f.date_select :deployed_at, {\
+        order: [:month, :year], start_year: 2012, end_year: Date.current.year, prompt: true\
+      }, {class: "form-control inline"}
 
 .form-group
-  label.checkbox-inline.control-label.col-xs-4
+  = f.label :link, class: "control-label col-xs-4"
+  .col-xs-8
+   = f.text_field :link, class: "form-control"
+
+.form-group
+  label.checkbox-inline.control-label.col-xs-offset-4
     =' f.check_box :highlighted
     ' Mettre en avant
 
 .form-group
-  label.checkbox-inline.control-label.col-xs-4
+  label.checkbox-inline.control-label.col-xs-offset-4
     =' f.check_box :visible
     ' Visible
 
+fieldset
+  legend Référencement
+
+  .form-group
+    = f.label :slug, class: "control-label col-xs-4"
+    .col-xs-8
+      = f.text_field :slug, class: "form-control"
+
+  .form-group
+    = f.label :seo_title, class: "control-label col-xs-4"
+    .col-xs-8
+      = f.text_field :seo_title, class: "form-control"
+
+  .form-group
+    = f.label :seo_keywords, class: "control-label col-xs-4"
+    .col-xs-8
+      = f.text_field :seo_keywords, class: "form-control"
+
+  .form-group
+    = f.label :seo_description, class: "control-label col-xs-4"
+    .col-xs-8
+      = f.text_area :seo_description, class: "form-control"
 
 
 / / = f.text_area :description, class: "redactor"
@@ -58,12 +95,7 @@ fieldset
           | Ajouter une image
 
 
-/ fieldset
-/   legend Référencement
-/   = f.text_field :slug, {}, {class: "required"}
-/   = f.text_field :seo_title
-/   = f.text_field :seo_keywords
-/   = f.text_area :seo_description
+
 
 .form-group
   .form-actions

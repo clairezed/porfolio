@@ -112,6 +112,7 @@ fr:
       default: "%d/%m/%Y"
       short: "%Y"
       long: "%d %B %Y"
+      B_Y: "%B %Y"
       long_with_day: "%A %d %B %Y"
 
     day_names: [Dimanche, Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi]

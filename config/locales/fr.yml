@@ -3,7 +3,3 @@ fr:
     zero: "%{count} résultat"
     one: "%{count} résultat"
     other: "%{count} résultats"
-
-  categories:
-    personnal:    Personnel
-    agency:       En agence

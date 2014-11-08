@@ -31,7 +31,7 @@ class Admin::ProjectsController < Admin::BaseController
 
   def update
     @project.attributes = project_params
-
+    # raise params.inspect
     if @project.save
       (params[:project][:new_pictures] || []).each do |idx, picture_params|
         @project.pictures << Asset::ProjectPicture.new(picture_params)
@@ -80,7 +80,7 @@ class Admin::ProjectsController < Admin::BaseController
   # strong parameters
   def project_params
     params.require(:project).permit(:category, :title, :slug, :description,
-      :link, :deloyed_at, :seo_title, :seo_keywords, :seo_description,
+      :link, :deployed_at, :highlighted, :visible, :seo_title, :seo_keywords, :seo_description,
       pictures_attributes: [:id, :alt, :title, :_destroy])
   end
 

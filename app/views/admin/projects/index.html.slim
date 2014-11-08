@@ -3,22 +3,26 @@
   table.table.table-striped.table-hover
     thead
       tr
+        th= shb_sort 'sort_by_deployed_at', label: 'Réalisation'
         th= shb_sort 'sort_by_title', label: 'Titre'
         th= shb_sort 'sort_by_category', label: 'Catégorie'
         th Image
-        th= shb_sort 'sort_by_slug', label: 'URL'
+        th= shb_sort 'sort_by_visible', label: 'Visible?'
+        th= shb_sort 'sort_by_highlighted', label: 'Featured?'
         th
     tbody
       - @projects.each do |project|
         tr
+          td= l(project.deployed_at, format: :B_Y)
           td= link_to project.title, edit_admin_project_path(project)
-          td= project.category.presence
+          td= project.human_category.presence
           td
             - if project.pictures.any?
               = image_tag project.pictures.first.asset.url(:thumb)
             - else
               span.text-muted -
-          td: small= project.slug
+          td: small=' check_box_tag :visible
+          td: small=' check_box_tag :highlighted
 
           td.action-btns
             =' link_to raw("<span class='glyphicon glyphicon-pencil'></span>"), edit_admin_project_path(project),\
