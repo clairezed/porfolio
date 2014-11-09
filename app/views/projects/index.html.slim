@@ -1,0 +1,9 @@
+- content_for :current_navigation_section, :projects
+
+.container
+  h2.text-center.section-header Tous les projets
+
+  .row
+    - @projects.each do |project|
+      .col-sm-6.col-md-4
+        = render "projects/project_thumbnail", project: project

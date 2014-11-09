@@ -19,20 +19,8 @@ section
     .row
       - @projects.each do |project|
         .col-sm-6.col-md-4
-          .thumbnail
-            = image_tag project.pictures.first.asset.url(:list), class:"img-responsive", alt:"{#project.pictures.first.asset.alt}"
-            / img.img-responsive alt="..." src="http://placehold.it/500x350"
-            .caption
-              h3 = project.title
-              p = project.description
-              p
-                span.label.label-default Meteor
-                span.label.label-default Temps réel
-                span.label.label-default Web application
-              p.text-right
-                a.btn.btn-primary href="#" role="button"
-                  =' "#{project.title} ?"
-                  span.glyphicon.glyphicon-play
+          = render "projects/project_thumbnail", project: project
+
       .col-sm-6.col-md-4
         .thumbnail
           img.img-responsive alt="..." src="http://placehold.it/400x275"

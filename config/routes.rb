@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resources :projects, except: [:show], concerns: :positionable do
       get :get_picture_form, on: :collection
       patch :sort_picture, on: :member
+      put :toggle_visible, on: :member
+      put :toggle_highlighted, on: :member
     end
 
 
@@ -21,7 +23,7 @@ Rails.application.routes.draw do
   end
 
    # Front ==========================================
-  # resources :projects, only: [:index,:show], path: "projects"
+  resources :projects, only: [:index,:show], path: "projects"
 
   # resources :contacts, only: [:new, :create, :index], path_names: {new: 'formulaire'}
 

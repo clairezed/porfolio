@@ -5,6 +5,8 @@ class Project < ActiveRecord::Base
   include Sortable
   include Seoable
 
+  acts_as_list
+
   # attr_accessor :picture_sent, :delete_picture
 
   CATEGORIES = [:personnal, :agency].freeze
@@ -17,9 +19,9 @@ class Project < ActiveRecord::Base
 
   # Validations =====================
 
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: true
   validates :description, presence: true
-  # validates :category, presence: true
+  validates :category, presence: true
 
 
   # Callbacks =====================
@@ -33,6 +35,10 @@ class Project < ActiveRecord::Base
       val.downcase!
       where(Project.arel_table[:title].matches("%#{val}%"))
     }
+
+  scope :visible, -> { where visible: true}
+  scope :highlighted, -> { where highlighted: true}
+  scope :homepage, -> {highlighted.visible}
 
   # Class Methods =====================
 
@@ -59,6 +65,14 @@ class Project < ActiveRecord::Base
 
   def human_category
      I18n.t(self.category, scope: :categories)
+  end
+
+  def toggle_visible!
+    toggle!(:visible)
+  end
+
+  def toggle_highlighted!
+    toggle!(:highlighted)
   end
 
   # def save_with_assets

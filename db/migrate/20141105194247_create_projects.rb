@@ -7,6 +7,7 @@ class CreateProjects < ActiveRecord::Migration
       t.date :deployed_at
       t.string :category
       t.string :link
+      t.integer :position
       t.boolean :highlighted, default: false
       t.boolean :visible, default: true
       t.string :slug

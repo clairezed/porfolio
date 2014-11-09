@@ -9,20 +9,34 @@
         th Image
         th= shb_sort 'sort_by_visible', label: 'Visible?'
         th= shb_sort 'sort_by_highlighted', label: 'Featured?'
+        th= shb_sort 'sort_by_position', label: 'Position'
         th
     tbody
+      - max_position    = @projects.map( &:position ).compact.max || 1
+      - position_select = (1..max_position).map {|i| [i,i] }
       - @projects.each do |project|
         tr
-          td= l(project.deployed_at, format: :B_Y)
+          td
+            - if project.deployed_at
+              = l(project.deployed_at, format: :B_Y)
+            - else
+              span.text-muted -
           td= link_to project.title, edit_admin_project_path(project)
-          td= project.human_category.presence
+          td
+            - if project.category
+              = project.human_category
+            - else
+              span.text-muted -
           td
             - if project.pictures.any?
               = image_tag project.pictures.first.asset.url(:thumb)
             - else
               span.text-muted -
-          td: small=' check_box_tag :visible
-          td: small=' check_box_tag :highlighted
+          td: small=' check_box_tag :toggle_visible, true, project.visible?, data: {toggle: 'visible', path: toggle_visible_admin_project_path(project)}
+          td: small=' check_box_tag :toggle_highlighted, true, project.highlighted?, data: {toggle: 'highlighted', path: toggle_highlighted_admin_project_path(project)}
+          td = form_tag position_admin_project_path(project), method: :patch do
+                = select_tag :position, options_for_select( position_select, project.position ),\
+                  onchange: '$(this).parent().submit();', class: "form-control input-sm", style: "width:70px", id: nil
 
           td.action-btns
             =' link_to raw("<span class='glyphicon glyphicon-pencil'></span>"), edit_admin_project_path(project),\
@@ -37,3 +51,27 @@
 
 
   = will_paginate @projects, renderer: BootstrapPagination::Rails
+
+
+
+= image_tag 'ajax-spinner.gif', style: "width: 10px; height: 10px; display: none", data: {loader_template: ''}
+
+coffee:
+  $loaderTemplate = $('[data-loader-template]')
+  $('[data-toggle]').click ->
+    console.log "clic"
+    $this = $(@).hide()
+    $loader = $loaderTemplate.clone().insertAfter($this).show()
+    $
+      .ajax(
+        url:    $this.data('path')
+        method: 'PUT'
+      )
+      .fail(->
+        flash("Une erreur s'est produite durant la communication avec le serveur, veuillez réessayer ultérieurement",'error')
+        $this.prop('checked', !$this.prop('checked')) # rollback de l'état de la checkbox
+      )
+      .always(->
+        $loader.remove()
+        $this.show()
+      )

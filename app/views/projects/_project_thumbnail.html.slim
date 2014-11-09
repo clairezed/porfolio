@@ -1,0 +1,16 @@
+.thumbnail
+  - if project.pictures.any?
+    = image_tag project.pictures.first.asset.url(:list), class:"img-responsive", alt:"{#project.pictures.first.asset.alt}"
+  - else
+      img.img-responsive alt="..." src="http://placehold.it/500x350"
+  .caption
+    h3 = project.title
+    p = project.teaser
+    p
+      span.label.label-default Meteor
+      span.label.label-default Temps réel
+      span.label.label-default Web application
+    p.text-right
+      = link_to project_path(project), class:"btn btn-primary" do
+        =' "#{project.title} ?"
+        span.glyphicon.glyphicon-play

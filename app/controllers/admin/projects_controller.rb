@@ -1,6 +1,7 @@
 class Admin::ProjectsController < Admin::BaseController
 
-  before_filter :find_project, only: [ :edit, :update, :destroy, :position, :sort_picture ]
+  before_filter :find_project, only: [ :edit, :update, :destroy,
+    :position, :sort_picture, :toggle_visible, :toggle_highlighted ]
 
   def index
     params[:sort] ||= "sort_by_created_at desc"
@@ -71,6 +72,16 @@ class Admin::ProjectsController < Admin::BaseController
     render partial: "picture_list"
   end
 
+  def toggle_visible
+    @project.toggle_visible!
+    render nothing: true
+  end
+
+  def toggle_highlighted
+    @project.toggle_highlighted!
+    render nothing: true
+  end
+
   private
 
   def find_project
@@ -79,7 +90,7 @@ class Admin::ProjectsController < Admin::BaseController
 
   # strong parameters
   def project_params
-    params.require(:project).permit(:category, :title, :slug, :description,
+    params.require(:project).permit(:category, :title, :slug, :description, :teaser,
       :link, :deployed_at, :highlighted, :visible, :seo_title, :seo_keywords, :seo_description,
       pictures_attributes: [:id, :alt, :title, :_destroy])
   end
