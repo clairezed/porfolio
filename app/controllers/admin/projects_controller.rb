@@ -19,10 +19,10 @@ class Admin::ProjectsController < Admin::BaseController
         raise picture_params.inspect
         @project.pictures << Asset::ProjectPicture.new(picture_params)
       end
-      flash[:notice] = "La référence a été créée avec succès"
+      flash[:notice] = "Le projet a été créée avec succès"
       redirect_to params[:continue].present? ? edit_admin_project_path(@project) : admin_projects_path
     else
-      flash[:error] = "Une erreur s'est produite lors de la création de la référence"
+      flash[:error] = "Une erreur s'est produite lors de la création du projet"
       render :new
     end
   end
@@ -37,10 +37,10 @@ class Admin::ProjectsController < Admin::BaseController
       (params[:project][:new_pictures] || []).each do |idx, picture_params|
         @project.pictures << Asset::ProjectPicture.new(picture_params)
       end
-      flash[:notice] = "La référence a été mise à jour avec succès"
+      flash[:notice] = "Le projet a été mis à jour avec succès"
       redirect_to params[:continue].present? ? edit_admin_project_path(@project) : admin_projects_path
     else
-      flash[:error] = "Une erreur s'est produite lors de la mise à jour de la référence"
+      flash[:error] = "Une erreur s'est produite lors de la mise à jour du projet"
       render :edit
     end
   end
@@ -48,16 +48,16 @@ class Admin::ProjectsController < Admin::BaseController
   def position
     if params[:position].present?
       @project.insert_at params[:position].to_i
-      flash[:notice] = "Les références ont été réordonnées avec succès"
+      flash[:notice] = "Les projets ont été réordonnées avec succès"
     end
     redirect_to admin_projects_path(by_category_id: params[:by_category_id])
   end
 
   def destroy
     begin
-      flash[:notice] = "La référence a bien été supprimée" if @project.destroy
+      flash[:notice] = "Le projet a bien été supprimé" if @project.destroy
     rescue ActiveRecord::DeleteRestrictionError => e
-      flash[:error] = "Cette référence ne peut être supprimée car des éléments lui sont dépendants"
+      flash[:error] = "Ce projet ne peut être supprimé car des éléments lui sont dépendants"
     end
     redirect_to admin_projects_path
   end

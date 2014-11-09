@@ -1,7 +1,7 @@
 = render :layout => 'layout_form' do
 
   h4
-    ' Edition de l'actalité
+    ' Edition du projet
     em= @project.title
   .well
     = form_for(@project, as: :project, url: admin_project_path(@project),  html:  {multipart: true, class: "form-horizontal"}) do |f|

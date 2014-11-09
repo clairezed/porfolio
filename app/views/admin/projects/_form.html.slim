@@ -17,7 +17,7 @@
 .form-group
   = f.label :description, class: "control-label col-xs-4"
   .col-xs-6
-    = f.text_area :description, class: "form-control"
+    = f.text_area :description, class: "form-control summernote"
 
 .form-group.inline
   = f.label :deployed_at, class: "control-label col-xs-4"
@@ -64,12 +64,6 @@ fieldset
     .col-xs-8
       = f.text_area :seo_description, class: "form-control"
 
-
-/ / = f.text_area :description, class: "redactor"
-
-/ = f.text_area :description#, {rows: 2, class: "controls-large"}
-/ = f.text_field :link#, {class: "controls-large"}
-
 fieldset
   legend Diaporama
   table.table id="pictures_table"
@@ -85,7 +79,6 @@ fieldset
 
     tr
       td colspan="5"
-        / = link_to "javascript:void(0)", class: "btn btn-info btn-sm", onclick: "get_picture_form()" do
         = link_to "javascript:void(0)", \
                     class: "btn btn-info btn-sm", \
                     onclick: "get_picture_form()", \
@@ -136,3 +129,14 @@ coffee:
 
   $ ->
     check_change_on_picture()
+
+    $('.summernote').summernote(
+      toolbar: [
+        ['style', ['bold', 'italic', 'underline', 'clear']]
+        ['font', ['strikethrough']]
+        ['fontsize', ['fontsize']]
+        ['color', ['color']]
+        ['para', ['ul', 'ol', 'paragraph']]
+        ['insert', ['link']]
+      ]
+    )

@@ -23,6 +23,7 @@ gem 'will_paginate', '~> 3.0.7'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
 gem 'slim', '~> 2.0.3'
 gem 'htmlentities', '~> 4.3.2'
+gem "font-awesome-rails"
 
 #= AUTHENTICATION =================
 
