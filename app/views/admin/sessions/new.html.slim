@@ -7,8 +7,15 @@
     = form_for resource, as: resource_name, url: session_path(resource_name),\
       html: {role: "form", class: "form-horizontal"} do |f|
 
-      = f.email_field :email, autofocus: true
-      = f.password_field :password
+      .form-group
+        = f.label :email, class: "control-label col-xs-2"
+        .col-xs-10
+          = f.email_field :email, class: "form-control", autofocus: true
+
+      .form-group
+        = f.label :password, class: "control-label col-xs-2"
+        .col-xs-10
+          = f.password_field :password, class: "form-control"
 
       .form-group
         .form-actions

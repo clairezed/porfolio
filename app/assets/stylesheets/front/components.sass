@@ -36,10 +36,18 @@
 // THUMBNAIL ======================================
 
 .thumbnail
+  position: relative
+  .caption
+    margin-bottom: 30px
+  .btn
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
   &:hover
     @include box-shadow(2px 2px 13px 0px rgba(0,0,0,.1))
-    .btn-primary
-      background-color: $brand-primary-dark
+    .btn-secondary
+      background-color: $brand-secondary-dark
 
 
 // FORMS ======================================

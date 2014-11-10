@@ -3,4 +3,4 @@
   h4 Créer un nouveau projet
   .well
     = form_for(@project, as: :project, url: admin_projects_path, html: { class: "form-horizontal"}) do |f|
-      = render partial: "form", locals: {f: f, button_name: "Créer l'actualité", button_name_2: "Créer et continuer l'édition"}
+      = render partial: "form", locals: {f: f, button_name: "Créer le projet", button_name_2: "Créer et continuer l'édition"}
