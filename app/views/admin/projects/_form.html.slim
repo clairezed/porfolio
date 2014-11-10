@@ -34,20 +34,9 @@
 .form-group
   = f.label :tags, class: "control-label col-xs-4"
   .form-control-static
-    ul.list-inline data-tags=""
-      - if f.object.tags.any?
-            - f.object.tags.each do |tag|
-                li
-                  span.label.label-info
-                    = tag.title
-                    = link_to "javascript:void(0)", class: "btn btn-info btn-sm" do
-                  /           onclick: "get_picture_form()", \
-                  /           "data-path" => get_picture_form_admin_projects_path, \
-                  /           id: "get_picture_form_link" do
-                  / span.glyphicon.glyphicon-plus'
-                    | X
-      - else
-        ' Aucun tag pour le moment
+    ul.list-inline data-tags="list"
+      = render 'tags_list', tags: f.object.tags
+
 
 .form-group
   = label :new_tag, 'Ajouter un tag', class: "control-label col-xs-4"
