@@ -92,7 +92,8 @@ class Admin::ProjectsController < Admin::BaseController
   def project_params
     params.require(:project).permit(:category, :title, :slug, :description, :teaser,
       :link, :deployed_at, :highlighted, :visible, :seo_title, :seo_keywords, :seo_description,
-      pictures_attributes: [:id, :alt, :title, :_destroy])
+      pictures_attributes: [:id, :alt, :title, :_destroy],
+      new_tag_attributes: [:tag_id, :project_id, :tag_title])
   end
 
 end

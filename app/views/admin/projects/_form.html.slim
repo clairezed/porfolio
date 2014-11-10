@@ -32,6 +32,37 @@
    = f.text_field :link, class: "form-control"
 
 .form-group
+  = f.label :tags, class: "control-label col-xs-4"
+  .form-control-static
+    ul.list-inline data-tags=""
+      - if f.object.tags.any?
+            - f.object.tags.each do |tag|
+                li
+                  span.label.label-info
+                    = tag.title
+                    = link_to "javascript:void(0)", class: "btn btn-info btn-sm" do
+                  /           onclick: "get_picture_form()", \
+                  /           "data-path" => get_picture_form_admin_projects_path, \
+                  /           id: "get_picture_form_link" do
+                  / span.glyphicon.glyphicon-plus'
+                    | X
+      - else
+        ' Aucun tag pour le moment
+
+.form-group
+  = label :new_tag, 'Ajouter un tag', class: "control-label col-xs-4"
+  = f.fields_for :new_tag do |fpt|
+    .col-xs-4
+      = text_field_tag 'tag_title', '', class: "form-control"
+      / data: {autocomplete_path: location_autocomplete_path(:json), geocode_path: location_geocode_path(:json)},\
+      / autocomplete: :off, placeholder: "Votre ville ou code postal"
+      = fpt.hidden_field :tag_id
+    .col-xs-1
+      =' link_to 'javascript:void(0)', class: "btn btn-info btn-sm", \
+        data: {path: check_admin_tag_path, tags: f.object.id} do
+        ' +
+
+.form-group
   label.checkbox-inline.control-label.col-xs-offset-4
     =' f.check_box :visible
     ' Visible
@@ -128,6 +159,7 @@ coffee:
       $("#picture_list select").attr("disabled", true).attr("title", "Veuillez enregistrer vos modifications avant de modifier la position de cette image")
 
   $ ->
+    Tags.init()
     check_change_on_picture()
 
     $('.summernote').summernote(

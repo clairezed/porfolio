@@ -17,6 +17,9 @@ Rails.application.routes.draw do
       put :toggle_visible, on: :member
       put :toggle_highlighted, on: :member
     end
+    resources :tags, only: [:new] do
+      put :check, on: :member
+    end
 
 
     root to: "dashboard#index"

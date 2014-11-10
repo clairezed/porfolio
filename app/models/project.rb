@@ -14,8 +14,12 @@ class Project < ActiveRecord::Base
   # Associations =====================
 
   has_many :pictures, -> { order :position }, as: :assetable, class_name: "Asset::ProjectPicture", dependent: :destroy
+  has_many :project_tags, class_name: "ProjectTag",   dependent: :destroy
+  has_many :tags, through: :project_tags
+
 
   accepts_nested_attributes_for :pictures, allow_destroy: true
+  accepts_nested_attributes_for :project_tags, allow_destroy: true
 
   # Validations =====================
 
@@ -61,7 +65,7 @@ class Project < ActiveRecord::Base
 
   end
 
-  # Instance Methods =====================
+  # Instance Methods ================================
 
   def human_category
      I18n.t(self.category, scope: :categories)
@@ -73,6 +77,18 @@ class Project < ActiveRecord::Base
 
   def toggle_highlighted!
     toggle!(:highlighted)
+  end
+
+  # Tags ---------------------------------------------
+
+   def new_tag_attributes=(attributes)
+    self.project_tags.delete(@new_tag) if @new_tag
+    @new_tag = self.project_tags.build(attributes)
+  end
+
+  def new_tag
+    @new_tag ||= self.project_tags.build()
+    # raise @new_tag.inspect
   end
 
   # def save_with_assets
