@@ -17,9 +17,12 @@ Rails.application.routes.draw do
       put :toggle_visible, on: :member
       put :toggle_highlighted, on: :member
     end
-    resources :tags, only: [:new] do
+    resources :tags, only: [:index, :destroy] do
       put :check, on: :member
+      get :autocomplete, on: :collection
+      # put :destroy_project_tag, on: :member
     end
+    resources :project_tags, only: [:destroy]
 
 
     root to: "dashboard#index"

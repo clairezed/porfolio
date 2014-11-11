@@ -11,8 +11,12 @@ class ProjectTag < ActiveRecord::Base
 
   # Validations =====================
 
-  validates :tag, presence: true
-  validates :project, presence: true
+  validates :project_id, presence: true
+  validates :tag_id, presence: true, uniqueness: {
+                  scope:    :project_id,
+                  case_sensitive: false,
+                  message:  "existe déjà"
+              }
 
 
   # Callbacks =====================
@@ -22,6 +26,7 @@ class ProjectTag < ActiveRecord::Base
 
   # Scopes =====================
 
+  scope :persisted, -> {where.not(id: nil) }
   # scope :by_title, ->(val) {
   #     val.downcase!
   #     where(Tag.arel_table[:title].matches("%#{val}%"))

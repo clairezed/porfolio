@@ -3,6 +3,7 @@
 #= require bootstrap
 
 #= require ./lib/summernote.min
+#= require ./lib/typeahead.bundle.min
 
 #= require_tree ./admin
 

@@ -14,7 +14,7 @@ class Project < ActiveRecord::Base
   # Associations =====================
 
   has_many :pictures, -> { order :position }, as: :assetable, class_name: "Asset::ProjectPicture", dependent: :destroy
-  has_many :project_tags, class_name: "ProjectTag",   dependent: :destroy
+  has_many :project_tags, class_name: "ProjectTag", dependent: :destroy
   has_many :tags, through: :project_tags
 
 

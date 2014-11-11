@@ -1,13 +1,9 @@
-- if tags.any?
-  - tags.each do |tag|
-      li
-        span.label.label-info
-          = tag.title
-          = link_to "javascript:void(0)", class: "btn btn-info btn-sm" do
-        /           onclick: "get_picture_form()", \
-        /           "data-path" => get_picture_form_admin_projects_path, \
-        /           id: "get_picture_form_link" do
-        / span.glyphicon.glyphicon-plus'
-          | X
+- if project_tags.any?
+  - project_tags.persisted.each do |p_tag|
+    li
+      span.label.label-info.label-action
+        = p_tag.tag.title
+        = link_to "X", admin_project_tag_path(p_tag), method: :delete, remote: true, data:{delete_tag: p_tag.id}
+
 - else
   ' Aucun tag pour le moment

@@ -13,8 +13,6 @@ class Tag < ActiveRecord::Base
   has_many :project_tags, dependent: :destroy
   has_many :projects, through: :project_tags
 
-  # accepts_nested_attributes_for :pictures, allow_destroy: true
-
   # Validations =====================
 
   validates :title, presence: true, uniqueness: true
@@ -32,13 +30,13 @@ class Tag < ActiveRecord::Base
       where(Tag.arel_table[:title].matches("%#{val}%"))
     }
 
-   # scope :having_projects, -> { joins(:projects).uniq }
+  scope :having_projects, -> { joins(:projects).uniq }
+
+  # scope :by_projects_count, -> {
+
+  # }
 
   # Class Methods =====================
-
-  # def self.human_categories
-  #   CATEGORIES.inject({}) {|hash, k| hash.merge I18n.t(k, scope: :categories) => k }
-  # end
 
   # def self.apply_filters(params)
   #     klass = self

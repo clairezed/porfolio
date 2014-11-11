@@ -3,9 +3,9 @@ html lang="#{I18n.locale}"
   head
     title= "Admin PROJET"
     meta http-equiv="content-type" content="text/html;charset=UTF-8"
+    = csrf_meta_tag
     = stylesheet_link_tag 'administration', :media => "all"
     = javascript_include_tag 'administration'
-    = csrf_meta_tag
 
   body
     nav.navbar.navbar-inverse.navbar-fixed-top
@@ -22,6 +22,7 @@ html lang="#{I18n.locale}"
           = menu_link 'Accueil', admin_root_path, section: :home, title: "Retour à l'accueil"
         ul.nav.navbar-nav.navbar-right
           = menu_link 'Projets', admin_projects_path, section: :projects, title: "projets"
+          = menu_link 'Tags', admin_tags_path, section: :tags, title: "projets"
           = menu_link root_path, section: nil, title: "Retour au site" do
             span.glyphicon.glyphicon-eject
           = menu_link destroy_admin_session_path, section: nil, title: "Se déconnecter", method: :delete do

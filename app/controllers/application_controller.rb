@@ -8,6 +8,12 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def check_referer_host
+    if request.referer.nil? || request.host != URI.parse(request.referer).host
+      render(nothing: true, status: :forbidden) and return
+    end
+  end
+
   def set_seos_for object
     @seo_title       = object.seo_title if !object.seo_title.blank?
     @seo_description = object.seo_description if !object.seo_description.blank?
