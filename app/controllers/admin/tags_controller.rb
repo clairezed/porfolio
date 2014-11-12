@@ -1,8 +1,8 @@
 class Admin::TagsController < Admin::BaseController
 
-  before_filter :check_referer_host, only: [:autocomplete, :destroy_project_tag]
+  before_filter :check_referer_host, only: [:autocomplete]
 
-  respond_to :json, only: [:autocomplete, :destroy_project_tag]
+  respond_to :json, only: [:autocomplete]
 
   def index
     @tags = Tag.order(:created_at)
@@ -24,17 +24,6 @@ class Admin::TagsController < Admin::BaseController
       render nothing: true
     end
   end
-
-  # def destroy_project_tag
-  #   @project_tag = ProjectTag.find params[:p_tag_id]
-  #   project = @project_tag.project
-  #   if @project_tag.destroy
-  #     render partial: "admin/projects/tags_list", locals: {project_tags: project.project_tags}
-  #   else
-  #     flash[:error] = "Une erreur s'est produite lors de la création du projet"
-  #     render nothing: true
-  #   end
-  # end
 
   def destroy
     @tag = Tag.find params[:id]
