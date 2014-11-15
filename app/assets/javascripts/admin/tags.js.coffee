@@ -44,6 +44,12 @@ class @Tags
 
 
     # Ajout d'un tag --------------------------------------------------------------------------
+    $("#tag_title").keydown (e) ->
+      if e.keyCode is 13
+        e.preventDefault()
+        $("[data-add-tags]").click()
+
+
     $("[data-add-tags]").on 'click', ->
       $.ajax $(@).data("path"),
         data:
@@ -61,6 +67,7 @@ class @Tags
     $("[data-tags='list']").on 'ajax:success',  "[data-delete-tag]", (e, data, status, xhr)->
       flash("Le tag a bien été supprimé", 'success')
       $("[data-tags='list']").html(data)
+      $("#tag_title").val('').focus()
 
 
 

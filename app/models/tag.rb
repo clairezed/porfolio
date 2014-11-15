@@ -10,7 +10,7 @@ class Tag < ActiveRecord::Base
 
   # Associations =====================
 
-  has_many :project_tags, dependent: :destroy
+  has_many :project_tags, dependent: :restrict_with_exception
   has_many :projects, through: :project_tags
 
   # Validations =====================
@@ -26,28 +26,30 @@ class Tag < ActiveRecord::Base
   # Scopes =====================
 
   scope :by_title, ->(val) {
-      val.downcase!
-      where(Tag.arel_table[:title].matches("%#{val}%"))
-    }
+    val.downcase!
+    where(Tag.arel_table[:title].matches("%#{val}%"))
+  }
 
   scope :having_projects, -> { joins(:projects).uniq }
 
-  # scope :by_projects_count, -> {
 
-  # }
 
   # Class Methods =====================
 
-  # def self.apply_filters(params)
-  #     klass = self
-
-  #     if params[:by_title].present?
-  #       klass = klass.by_title(params[:by_title])
-  #     end
-
-  #   klass.apply_sorts(params)
-
+  # def self.sort_by_projects_count(order)
+  #   self.joins(:project_tags).group("project_tags.tag_id").order("count(project_tags.tag_i‌​d) #{order}")
   # end
+
+  def self.apply_filters(params)
+      klass = self
+
+      if params[:by_title].present?
+        klass = klass.by_title(params[:by_title])
+      end
+
+    klass.apply_sorts(params)
+
+  end
 
   # Instance Methods =====================
 

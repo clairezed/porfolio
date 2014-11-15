@@ -7,6 +7,16 @@ small= I18n.t("results", count: @tags.count)
     .well.well-sm
       fieldset
         legend Filtre
+        = form_tag admin_tags_path, method: :get, id: "tags_filters" do
+          .form-group
+            label.control-label Rechercher
+            =' text_field_tag :by_title, params[:by_title], \
+              class: "form-control", placeholder: "titre"
+          .form-group
+            = submit_tag "Appliquer", class: "btn btn-default btn-sm"
+            = link_to admin_tags_path, class: "btn btn-sm" do
+              span.glyphicon.glyphicon-repeat
+              |  Réinitialiser
 
   .content-main
     table.table.table-striped.table-hover
@@ -30,4 +40,4 @@ small= I18n.t("results", count: @tags.count)
             p.text-center: em.text-muted Aucun résultat
 
 
-/= will_paginate @tags, renderer: BootstrapPagination::Rails
+= will_paginate @tags, renderer: BootstrapPagination::Rails

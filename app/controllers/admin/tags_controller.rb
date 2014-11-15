@@ -5,7 +5,8 @@ class Admin::TagsController < Admin::BaseController
   respond_to :json, only: [:autocomplete]
 
   def index
-    @tags = Tag.order(:created_at)
+    params[:sort] ||= "sort_by_created_at desc"
+    @tags = Tag.apply_filters(params).paginate(per_page: 10, page: params[:page])
   end
 
   def autocomplete

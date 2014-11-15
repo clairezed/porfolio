@@ -144,7 +144,7 @@ coffee:
       error: ->
         alert("Une erreur est intervenue au chargement d'une nouvelle image")
 
-  # nécécessaire de mettre cette fonction afin de la rappeler à la fin de l'appel ajax
+  # nécessaire de mettre cette fonction afin de la rappeler à la fin de l'appel ajax
   check_change_on_picture = ->
     $("#picture_list input").on "change", ->
       $("#picture_list select").attr("disabled", true).attr("title", "Veuillez enregistrer vos modifications avant de modifier la position de cette image")
@@ -153,13 +153,3 @@ coffee:
     Tags.init()
     check_change_on_picture()
 
-    $('.summernote').summernote(
-      toolbar: [
-        ['style', ['bold', 'italic', 'underline', 'clear']]
-        ['font', ['strikethrough']]
-        ['fontsize', ['fontsize']]
-        ['color', ['color']]
-        ['para', ['ul', 'ol', 'paragraph']]
-        ['insert', ['link']]
-      ]
-    )
