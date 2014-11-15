@@ -1,0 +1,2 @@
+span.label.label-default class="#{'active' if params[:by_tag].to_i == tag.id}"
+  = link_to tag.title, projects_path(by_tag: tag.id)

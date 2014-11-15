@@ -1,7 +1,8 @@
 class ProjectsController < ApplicationController
 
   def index
-    @projects = Project.visible.order(position: :asc)
+    @tags = Tag.having_projects.order(:title)
+    @projects = Project.visible.apply_filters(params).order(position: :asc)
   end
 
   def show

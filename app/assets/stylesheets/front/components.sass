@@ -5,7 +5,7 @@
 // forms
 
 
-// TYPOGRAPHY
+// TYPOGRAPHY ======================================
 
 
 .section-header
@@ -29,6 +29,19 @@
 .label
   padding: .2em .8em .3em
   border-radius: 1em
+  margin-right: 0.5em
+  &:last-child
+    margin-right: 0
+  &:hover
+    background-color: darken($gray-light, 10%)
+  &.active
+    background-color: $brand-secondary
+    &:hover
+      background-color: darken($brand-secondary, 10%)
+  a
+    color: #fff
+    &:hover
+      color: #fff
 
 .label-secondary
   @include label-variant($label-secondary-bg)
@@ -48,6 +61,21 @@
     @include box-shadow(2px 2px 13px 0px rgba(0,0,0,.1))
     .btn-secondary
       background-color: $brand-secondary-dark
+
+.settings
+  width: 100%
+  border: 1px solid $brand-secondary
+  margin-bottom: 1.5em
+  .settings-header
+    background-color: $brand-secondary
+    color: #fff
+    padding: 10px
+  h3
+    margin: 0
+    font-size: 18px
+  .settings-body
+    padding: 10px
+
 
 
 // FORMS ======================================

@@ -39,6 +39,9 @@ class Project < ActiveRecord::Base
       val.downcase!
       where(Project.arel_table[:title].matches("%#{val}%"))
     }
+  scope :by_tag, ->(tag_id) {
+    joins(:project_tags).where(project_tags: {tag_id: tag_id})
+  }
 
   scope :visible, -> { where visible: true}
   scope :highlighted, -> { where highlighted: true}
@@ -55,6 +58,10 @@ class Project < ActiveRecord::Base
 
       if params[:by_title].present?
         klass = klass.by_title(params[:by_title])
+      end
+
+      if params[:by_tag].present?
+        klass = klass.by_tag(params[:by_tag])
       end
 
       # if params[:by_category].present?
