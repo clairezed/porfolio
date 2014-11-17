@@ -1,0 +1,13 @@
+- if project_tasks.any?
+  table.table
+    tbody
+      - project_tasks.persisted.each do |p_task|
+        tr
+          td colspan="8"
+            = p_task.task.title
+          td colspan="1"
+            = link_to "X", admin_project_task_path(p_task), method: :delete, remote: true, data:{delete_task: p_task.id}, class:"btn btn-danger btn-xs"
+
+
+- else
+  ' Aucune tache pour le moment

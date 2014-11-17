@@ -63,6 +63,30 @@
         ul.list-inline data-tags="list"
           = render 'tags_list', project_tags: f.object.project_tags
 
+- if f.object.persisted?
+  fieldset
+    legend Taches
+
+    .form-group
+      = label :new_task, 'Ajouter une tache', class: "control-label col-xs-3"
+      = f.fields_for :new_task do |fpt|
+        .col-xs-3
+          = text_field_tag 'task_title', '', class: "form-control", \
+          data: {autocomplete_path: autocomplete_admin_tasks_path(:json)},\
+          autocomplete: :off
+          = fpt.hidden_field :task_id
+        .col-xs-1
+          =' link_to 'javascript:void(0)', class: "btn btn-info btn-sm", \
+            data: {path: check_admin_task_path, add_tasks: f.object.id} do
+            ' +
+
+    .form-group
+      = f.label :tasks, class: "control-label col-xs-3"
+      .col-xs-8
+        .form-control-static
+          div data-tasks="list"
+            = render 'tasks_list', project_tasks: f.object.project_tasks
+
 fieldset
   legend Diaporama
   table.table id="pictures_table"
@@ -151,5 +175,6 @@ coffee:
 
   $ ->
     Tags.init()
+    Tasks.init()
     check_change_on_picture()
 

@@ -1,16 +1,16 @@
-class ProjectTag < ActiveRecord::Base
+class ProjectTask < ActiveRecord::Base
 
   # Configs =========================
 
   # Associations =====================
 
-  belongs_to :tag
+  belongs_to :task
   belongs_to :project
 
   # Validations =====================
 
   validates :project_id, presence: true
-  validates :tag_id, presence: true, uniqueness: {
+  validates :task_id, presence: true, uniqueness: {
                   scope:    :project_id,
                   case_sensitive: false,
                   message:  "existe déjà"
@@ -23,6 +23,9 @@ class ProjectTag < ActiveRecord::Base
   # Scopes =====================
 
   scope :persisted, -> {where.not(id: nil) }
+
+
+  # Class Methods =====================
 
 
   # Instance Methods =====================

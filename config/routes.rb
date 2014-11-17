@@ -22,7 +22,13 @@ Rails.application.routes.draw do
       get :autocomplete, on: :collection
       # put :destroy_project_tag, on: :member
     end
+    resources :tasks, only: [:index, :destroy] do
+      put :check, on: :member
+      get :autocomplete, on: :collection
+      # put :destroy_project_tag, on: :member
+    end
     resources :project_tags, only: [:destroy]
+    resources :project_tasks, only: [:destroy]
 
 
     root to: "dashboard#index"

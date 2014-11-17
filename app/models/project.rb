@@ -16,6 +16,8 @@ class Project < ActiveRecord::Base
   has_many :pictures, -> { order :position }, as: :assetable, class_name: "Asset::ProjectPicture", dependent: :destroy
   has_many :project_tags, class_name: "ProjectTag", dependent: :destroy
   has_many :tags, through: :project_tags
+  has_many :project_tasks, class_name: "ProjectTask", dependent: :destroy
+  has_many :tasks, through: :project_tasks
 
 
   accepts_nested_attributes_for :pictures, allow_destroy: true
@@ -96,6 +98,10 @@ class Project < ActiveRecord::Base
   def new_tag
     @new_tag ||= self.project_tags.build()
     # raise @new_tag.inspect
+  end
+
+  def new_task
+    @new_tasks ||= self.project_tasks.build()
   end
 
   # def save_with_assets
