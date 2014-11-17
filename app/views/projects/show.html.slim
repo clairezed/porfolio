@@ -1,8 +1,33 @@
 - content_for :current_navigation_section, :projects
 
 section
-  .container
+  .container.container-small
     h1.text-center.section-header
       = @project.title
 
-    p = raw @project.description
+    - if @project.pictures.any?
+      = image_tag @project.pictures.first.asset.url(:list), class:"img-responsive img-center medium-margin-below", alt:"{#@project.pictures.first.asset.alt}"
+
+    .row
+      .col-md-8
+        p = raw @project.description
+      .col-md-4
+        h3 Mon job sur le projet :
+        ul
+          - @project.tasks.each do |task|
+            li = task.title
+    .row
+      .col-md-8
+
+        - if @project.deployed_at
+          span.pull-right= l(@project.deployed_at, format: :B_Y)
+        span = @project.human_category
+
+    p
+      - @project.tags.each do |tag|
+        = render "projects/tags", tag: tag
+
+    p
+      = link_to "Suivant", "#", class: "btn btn-secondary pull-right"
+      = link_to "Précédent", "#", class: "btn btn-secondary"
+

@@ -16,26 +16,15 @@ section
   .container
     h2.text-center.section-header Projets triés sur le volet
 
-    .row
-      - @projects.each do |project|
-        .col-sm-6.col-md-4
-          = render "projects/project_thumbnail", project: project
+    - @projects.each_slice(3) do |slice|
+      .row
+        - slice.each do |project|
+          .col-sm-6.col-md-4
+            = render "projects/project_thumbnail", project: project
 
       .col-sm-6.col-md-4
         .thumbnail
           img.img-responsive alt="..." src="http://placehold.it/400x275"
-          .caption
-            h3 Bullshit Bingo
-            p Web application entièrement temps réel permettant de créer ses grilles de bingo et jouer au bullshit bingo à plusieurs.
-            p
-              span.label.label-default Meteor
-              span.label.label-default Temps réel
-              span.label.label-default Web application
-            p.text-right
-              a.btn.btn-primary href="#" role="button"  Je veux en savoir plus !
-      .col-sm-6.col-md-4
-        .thumbnail
-          img.img-responsive alt="..." src="http://placehold.it/500x350"
           .caption
             h3 Bullshit Bingo
             p Web application entièrement temps réel permettant de créer ses grilles de bingo et jouer au bullshit bingo à plusieurs.
