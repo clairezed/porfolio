@@ -2,31 +2,49 @@
 
 section
   .container.container-small
-    h1.text-center.section-header
+    h1.text-center
       = @project.title
 
     - if @project.pictures.any?
       = image_tag @project.pictures.first.asset.url(:list), class:"img-responsive img-center medium-margin-below", alt:"{#@project.pictures.first.asset.alt}"
 
-    .row
-      .col-md-8
-        p = raw @project.description
-      .col-md-4
-        h3 Mon job sur le projet :
-        ul
-          - @project.tasks.each do |task|
-            li = task.title
-    .row
-      .col-md-8
+    p.lead = @project.teaser
 
-        - if @project.deployed_at
-          span.pull-right= l(@project.deployed_at, format: :B_Y)
-        span = @project.human_category
+    p = raw @project.description
 
-    p
+
+section.bg-primary
+  .container.container-small
+    h3 Mon job sur le projet :
+    ul
+      - @project.tasks.each do |task|
+        li = task.title
+
+section
+  .container.container-small
+    - if @project.pictures.count > 1
+      - @project.pictures.each_slice(2) do |slice|
+        .row
+          - slice.each do |pic|
+            .col-md-6
+              = image_tag pic.asset.url(:list), class:"img-responsive img-center medium-margin-below", alt:"{#@project.pictures.first.asset.alt}"
+
+    p.text-center.medium-margin-below
       - @project.tags.each do |tag|
         = render "projects/tags", tag: tag
+    .row
+      .col-sm-4
+        span = @project.human_category
+      .col-sm-4.text-center
+        - if @project.link
+          span.text-center
+            = link_to "Voir #{@project.title}", @project.link, class: "btn btn-secondary"
+      .col-sm-4.text-right
+        - if @project.deployed_at
+          span= l(@project.deployed_at, format: :B_Y)
 
+    br
+    br
     p
       = link_to "Suivant", "#", class: "btn btn-secondary pull-right"
       = link_to "Précédent", "#", class: "btn btn-secondary"
