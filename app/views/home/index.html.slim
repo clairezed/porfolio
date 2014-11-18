@@ -48,17 +48,52 @@ section.bg-primary.full-page
             img.img-responsive.img-circle alt="..." src="http://placehold.it/200x200"
           .col-sm-8.medium-margin-below
             p Dans le développement web depuis 2012 après une incursion dans le milieu culturel, je me suis spécialisée en Ruby on Rails et m'intéresse aussi à plein de frameworks javascript.
-      .col-md-6.well.clearfix
-        h3.text-center.small-margin-below On fait quelque chose ensemble ?
-        form role="form"
-          .form-group
-            label for="exampleInputEmail1"  Adresse mail
-            input#exampleInputEmail1.form-control placeholder=("Adresse mail") type="email"
-          .form-group
-            label for="exampleInputPassword1"  Objet
-            input#exampleInputPassword1.form-control placeholder="Objet" type="password"
-          .form-group
-            label for="exampleInputFile"  Votre message
-            textarea#exampleInputFile.form-control rows="3"
-          button.btn.btn-secondary.text-right.pull-right type="submit"
-            'C'est parti !
+
+      .col-md-6
+        .well.clearfix
+          h3.text-center.small-margin-below On fait quelque chose ensemble ?
+          = form_for(@contact, as: :contact, url: contacts_path, remote: true, \
+            html: { class: ""}) do |f|
+
+            = f.custom_form_errors
+
+            .form-group
+              = f.label :email, class:"control-label"
+              = f.email_field :email, class: "form-control", placeholder:"Votre plus belle adresse mail"
+            .form-group
+              = f.label :subject, class:"control-label"
+              = f.text_field :subject, class: "form-control", placeholder:"C'est à quel sujet ?"
+            .form-group
+              = f.label :message, class:"control-label"
+              = f.text_area :message, class: "form-control", rows:"3"
+            =' f.submit "C'est parti !", class: "btn btn-secondary pull-right", style: "margin-right: 2px"
+
+
+
+/ = form_for(@contact, as: :contact, url: contacts_path, remote: true, \
+/   html: { class: "form-horizontal contact_form"}) do |f|
+
+/   = f.shb_form_errors
+/   = f.shb_text_field :lastname, { placeholder: "Votre nom"}, {class: "required picto name"}
+/   = f.shb_text_field :firstname, { placeholder: "Votre prénom" }, {class: "picto name" }
+/   = f.shb_text_field :company, { placeholder: "Votre société" }, {class: "required picto briefcase" }
+/   = f.shb_email_field :email, { placeholder: "Votre e-mail" }, {class: "required picto e-mail"}
+/   = f.shb_text_field :phone, { placeholder: "Votre téléphone" }, {class: "picto phone"}
+/   = f.shb_text_area :message, { rows:"5", placeholder: "Entrez votre message ici" }, { }
+/   = hidden_field_tag :format, "form_h"
+
+/   .form-group
+/     .form-actions.text-right
+/       =' f.submit "Envoyer", class: "btn btn-primary btn-sm", style: "margin-right: 2px", id: "submit_and_leave"
+
+
+/ javascript:
+/   var success_path = '#{contacts_path}';
+/ coffee:
+/   $('.contact_form').on "ajax:success", ->
+/     window.location = success_path
+/   $('.contact_form').on "ajax:error", (event, xhr, error) ->
+/     if xhr.status is 422
+/       $("#form").html(xhr.responseText)
+/     else
+/       alert("Une erreur technique s'est produite. Veuillez réessayer ultérieurement")

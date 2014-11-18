@@ -4,6 +4,7 @@ class HomeController < ApplicationController
 
   def index
     @projects = Project.homepage.order(:position)
+    @contact = Contact.new
   end
 
 end

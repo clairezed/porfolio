@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   resources :projects, only: [:index,:show], path: "projects"
 
   # resources :contacts, only: [:new, :create, :index], path_names: {new: 'formulaire'}
-
+  resources :contacts, only: [:create]
 
 
   get "/:filename", to: "statics#show"
