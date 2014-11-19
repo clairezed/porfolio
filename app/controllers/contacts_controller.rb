@@ -1,16 +1,17 @@
 class ContactsController < ApplicationController
 
-  def new
-    @contact = Contact.new
-  end
+  # def new
+  #   @contact = Contact.new
+  # end
 
   def create
+    # raise params.inspect
     @contact = Contact.new(contact_params)
     if @contact.save
       render json: true
     else
       flash[:error] = "Oups, il y a eu un soucis lors de l'envoi de votre message"
-      render json: false
+      render json: @contact.errors
     end
   end
 

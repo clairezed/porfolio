@@ -2,6 +2,8 @@
 #= require jquery_ujs
 #= require bootstrap
 
+#= require_tree ./front
+
 #= require ./shared/flash-messages
 
 

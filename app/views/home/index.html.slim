@@ -53,7 +53,7 @@ section.bg-primary.full-page
         .well.clearfix
           h3.text-center.small-margin-below On fait quelque chose ensemble ?
           = form_for(@contact, as: :contact, url: contacts_path, remote: true, \
-            html: { class: ""}) do |f|
+            html: { class: "contact_form"}) do |f|
 
             = f.custom_form_errors
 
@@ -68,6 +68,12 @@ section.bg-primary.full-page
               = f.text_area :message, class: "form-control", rows:"3"
             =' f.submit "C'est parti !", class: "btn btn-secondary pull-right", style: "margin-right: 2px"
 
+coffee:
+  Contact.init()
+  #$('.contact_form').on "ajax:success", (e, data, status, xhr) ->
+   # console.log("success")
+  #$('.contact_form').on "ajax:error", (event, xhr, error) ->
+   # console.log("error")
 
 
 / = form_for(@contact, as: :contact, url: contacts_path, remote: true, \
