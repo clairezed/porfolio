@@ -8,10 +8,10 @@ class ContactsController < ApplicationController
     # raise params.inspect
     @contact = Contact.new(contact_params)
     if @contact.save
-      render json: true
+      render partial: "contacts/contact_success"
     else
       flash[:error] = "Oups, il y a eu un soucis lors de l'envoi de votre message"
-      render json: @contact.errors
+      render partial: "contacts/contact_form", locals: {contact: @contact}
     end
   end
 

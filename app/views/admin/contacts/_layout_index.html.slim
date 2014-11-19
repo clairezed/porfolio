@@ -1,0 +1,25 @@
+- content_for :current_navigation_section, :contacts
+
+/Sidebar
+h3.page-title
+  | Gestion des contacts
+
+small.pull-right= I18n.t("results", count: @contacts.count)
+.row
+  aside.content-left
+    .well.well-sm
+      fieldset
+        legend Filtre
+        = form_tag admin_contacts_path, method: :get, id: "contacts_filters" do
+          .form-group
+            label.control-label Rechercher
+            =' text_field_tag 'by_email', params[:by_email], \
+              class: "form-control", placeholder: "email"
+          .form-group
+            = submit_tag "Appliquer", class: "btn btn-default btn-sm"
+            = link_to admin_contacts_path, class: "btn btn-sm" do
+              span.glyphicon.glyphicon-repeat'
+              | Réinitialiser
+
+  .content-main
+    = yield

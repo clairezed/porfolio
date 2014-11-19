@@ -1,0 +1,31 @@
+= render :layout => 'layout_index' do
+
+  table.table.table-striped.table-hover
+    thead
+      tr
+        th= shb_sort 'sort_by_created_at', label: 'Date de création'
+        th= shb_sort 'sort_by_email', label: 'Email'
+        th= shb_sort 'sort_by_subject', label: 'Objet'
+        th= shb_sort 'sort_by_read', label: 'Etat'
+        th
+    tbody
+      - @contacts.each do |contact|
+        tr
+          td= l(contact.created_at, format: :default)
+          td= contact.email.presence || raw("<span class='text-muted'>-</span>")
+          td= contact.subject.presence || raw("<span class='text-muted'>-</span>")
+          td
+            span class="label label-#{contact.read? ? 'success' : 'warning'}" = contact.read? ? "lu" : "non lu"
+          td.action-btns
+            / =' link_to raw("<span class='glyphicon glyphicon-pencil'></span>"), edit_admin_contact_path(contact),\
+            /   class: "btn btn-sm btn-info", title: "Editer"
+            = link_to raw("<span class='glyphicon glyphicon-trash'></span>"), admin_contact_path(contact),\
+              method: :delete, data: {confirm: "Confirmer la suppression ?"}, title: "Supprimer", class: "btn btn-sm btn-danger"
+
+      - if @contacts.empty?
+        tr
+          td colspan="7"
+            p.text-center: em.text-muted Aucun résultat
+
+
+  = will_paginate @contacts, renderer: BootstrapPagination::Rails

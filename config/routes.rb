@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     end
     resources :project_tags, only: [:destroy]
     resources :project_tasks, only: [:destroy]
+    resources :contacts, only: [:index, :destroy]
 
 
     root to: "dashboard#index"

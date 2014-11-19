@@ -1,0 +1,15 @@
+= form_for(contact, as: :contact, url: contacts_path, remote: true, \
+  html: { class: "contact_form"}) do |f|
+
+  = f.custom_form_errors
+
+  .form-group
+    = f.label :email, class:"control-label"
+    = f.email_field :email, class: "form-control", placeholder:"Votre plus belle adresse mail"
+  .form-group
+    = f.label :subject, class:"control-label"
+    = f.text_field :subject, class: "form-control", placeholder:"C'est à quel sujet ?"
+  .form-group
+    = f.label :message, class:"control-label"
+    = f.text_area :message, class: "form-control", rows:"3"
+  =' f.submit "C'est parti !", class: "btn btn-secondary pull-right", style: "margin-right: 2px"

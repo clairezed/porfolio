@@ -1,0 +1,14 @@
+fr:
+  activerecord:
+    attributes:
+      contact:
+        email:              L'email
+        subject:            L'objet
+        message:            Le message
+
+  helpers:
+    label:
+      contact:
+        email:              Email
+        subject:            Objet
+        message:            Message
