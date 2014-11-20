@@ -24,7 +24,12 @@ html lang="#{I18n.locale}"
           = menu_link 'Projets', admin_projects_path, section: :projects, title: "projets"
           = menu_link 'Tags', admin_tags_path, section: :tags, title: "projets"
           = menu_link 'Tâches', admin_tasks_path, section: :tasks, title: "tâches"
-          = menu_link 'Contacts', admin_contacts_path, section: :contacts, title: "contacts"
+          = menu_link admin_contacts_path, section: :contacts do
+            span.glyphicon.glyphicon-envelope'
+            ' Contacts
+            - if (nb = Contact.unread.count) > 0
+              span.label.label-info = nb
+
           = menu_link root_path, section: nil, title: "Retour au site" do
             span.glyphicon.glyphicon-eject
           = menu_link destroy_admin_session_path, section: nil, title: "Se déconnecter", method: :delete do

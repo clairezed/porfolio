@@ -1,6 +1,6 @@
 class Admin::ContactsController < Admin::BaseController
 
-  before_filter :find_contact, only: [ :edit, :update, :destroy ]
+  before_filter :find_contact, only: [ :show, :destroy ]
 
   def index
     params[:sort] ||= "sort_by_created_at desc"
@@ -10,6 +10,12 @@ class Admin::ContactsController < Admin::BaseController
       flash[:notice] = session[:notice]
       session[:notice] = nil
     end
+  end
+
+  def show
+    # raise params.inspect
+    @contact.mark_as_read!
+    render layout: false
   end
 
   def destroy

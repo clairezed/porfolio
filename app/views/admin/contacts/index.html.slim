@@ -6,6 +6,7 @@
         th= shb_sort 'sort_by_created_at', label: 'Date de création'
         th= shb_sort 'sort_by_email', label: 'Email'
         th= shb_sort 'sort_by_subject', label: 'Objet'
+        th Message
         th= shb_sort 'sort_by_read', label: 'Etat'
         th
     tbody
@@ -14,6 +15,8 @@
           td= l(contact.created_at, format: :default)
           td= contact.email.presence || raw("<span class='text-muted'>-</span>")
           td= contact.subject.presence || raw("<span class='text-muted'>-</span>")
+          td.col-md-6 =' link_to contact.message.truncate(200), "javascript:void(0)", \
+                        onclick: "show_modal('#{admin_contact_path(contact)}','modal_contact', {}, 'Message')"
           td
             span class="label label-#{contact.read? ? 'success' : 'warning'}" = contact.read? ? "lu" : "non lu"
           td.action-btns
@@ -29,3 +32,14 @@
 
 
   = will_paginate @contacts, renderer: BootstrapPagination::Rails
+
+
+#modal_contact.modal.fade role="dialog"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close type="button" data-dismiss="modal" aria-hidden="true" &times;
+        h4.modal-title
+      .modal-body
+        .loading_content = image_tag 'loader.gif'
+        .ajax_content

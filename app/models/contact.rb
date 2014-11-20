@@ -34,6 +34,10 @@ class Contact < ActiveRecord::Base
 
   # Instance Methods ===========================================================
 
+  def mark_as_read!
+    update_column :read, true
+  end
+
   private #=====================================================================
 
   def notify_admin
