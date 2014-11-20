@@ -22,3 +22,5 @@ $ ->
       ['insert', ['link']]
     ]
   )
+
+  $('[data-submit-on-change]').change(-> @form.submit())

@@ -32,6 +32,7 @@ class Tag < ActiveRecord::Base
 
   scope :having_projects, -> { joins(:projects).uniq }
 
+  scope :without_project, -> { where.not(id: ProjectTag.pluck(:tag_id).uniq) }
 
 
   # Class Methods =====================
@@ -45,6 +46,10 @@ class Tag < ActiveRecord::Base
 
       if params[:by_title].present?
         klass = klass.by_title(params[:by_title])
+      end
+
+      if params[:without_project].present?
+        klass = klass.without_project
       end
 
     klass.apply_sorts(params)
