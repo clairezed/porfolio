@@ -37,7 +37,7 @@ html lang="#{I18n.locale}"
             ul.nav.navbar-nav.navbar-right
               = menu_link 'Home', root_path, section: :home, title: "Retour à l'accueil"
               = menu_link 'Projets', projects_path, section: :projects, title: "Je veux voir les projets"
-              = menu_link 'Contact', root_path, section: :contact, title: "En savoir plus sur moi"
+              = menu_link 'Contact', new_contact_path, section: :contact, title: "En savoir plus sur moi"
     = raw flash_messages
 
     = yield

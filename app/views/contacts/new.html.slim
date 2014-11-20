@@ -1,0 +1,45 @@
+- content_for :current_navigation_section, :contact
+
+section.bg-primary
+  .container
+    h1.text-center.section-header A propos
+
+
+    .row
+      h3.text-center.small-margin-below
+        | Une développeuse qui aime l'orange
+      .col-md-6
+        .row
+          .col-sm-4.medium-margin-below
+            img.img-responsive.img-circle alt="..." src="http://placehold.it/200x200"
+          .col-sm-8.medium-margin-below
+            p Dans le développement web depuis 2012 après une incursion dans le milieu culturel, je me suis spécialisée en Ruby on Rails et m'intéresse aussi à plein de frameworks javascript.
+
+      .col-md-6
+        p
+          ' Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          ' tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          ' quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          ' consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          ' cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          ' proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+section
+  .container.container-small
+    h3.text-center.small-margin-below
+      | A propos de ce site
+
+    p
+      ' Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      ' tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      ' quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      ' consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      ' cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      ' proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+section
+  .container.container-small
+    .well.clearfix
+      h3.text-center.small-margin-below On fait quelque chose ensemble ?
+      div data-ajax="contact-form"
+        / = render partial: "contacts/contact_success"
+        = render "contacts/contact_form", contact: @contact

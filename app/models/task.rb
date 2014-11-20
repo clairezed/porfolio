@@ -4,6 +4,7 @@ class Task < ActiveRecord::Base
 
   include Sortable
 
+  #TODO : ordonnancement des taches
   # acts_as_list
 
 

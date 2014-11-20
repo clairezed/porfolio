@@ -1,11 +1,10 @@
 class ContactsController < ApplicationController
 
-  # def new
-  #   @contact = Contact.new
-  # end
+  def new
+    @contact = Contact.new
+  end
 
   def create
-    # raise params.inspect
     @contact = Contact.new(contact_params)
     if @contact.save
       render partial: "contacts/contact_success"
