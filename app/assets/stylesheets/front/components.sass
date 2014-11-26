@@ -18,7 +18,8 @@
 .btn-default
   background-color: transparent
   &:hover
-    background-color: transparent
+    background-color: #fff
+    color: $brand-primary
 
 .btn-link
   &:hover, &:focus
@@ -26,6 +27,8 @@
 
 // LABELS ======================================
 .label
+  font-size: 85%
+  font-weight: normal
   padding: .2em .8em .3em
   border-radius: 1em
   margin-right: 0.5em
@@ -79,6 +82,11 @@
 // WELL =======================================
 .well
   color: #fff
+  .form-control
+    background-color: lighten($brand-primary, 10%)
+    color: #fff
+    border: none
+    border-bottom: 1px solid #757575
 
 
 
@@ -141,3 +149,13 @@ td.action-btns-tight
   text-align: center
   span.alert
     padding: 10px 14px
+
+// Icons
+
+a.icon
+  font-size: 18px
+  color: inherit
+
+.social-icon
+  a
+    margin-left: 15px

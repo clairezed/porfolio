@@ -104,22 +104,13 @@ class Project < ActiveRecord::Base
     @new_tasks ||= self.project_tasks.build()
   end
 
-  # def save_with_assets
-  #   if self.document_sent
-  #     doc = Asset::PostDocument.new(asset: self.document_sent)
-  #     self.errors.add(:document_sent, "n'a pas un format reconnu") if !doc.valid?(:asset)
-  #   end
+  def previous
+    Project.find_by_position(self.position - 1)
+  end
 
-  #   if self.errors.empty? && self.valid?
-  #     self.save
-  #     self.document = doc if doc && doc.valid?(:asset)
-  #     true
-  #   else
-  #     false
-  #   end
-  # end
-
-
+  def next
+    Project.find_by_position(self.position + 1)
+  end
 
   private #==========================================================
 

@@ -7,6 +7,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.from_param params[:id]
+    @previous_project = @project.previous
+    @next_project = @project.next
   end
 end
 

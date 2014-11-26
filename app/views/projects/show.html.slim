@@ -1,24 +1,43 @@
 - content_for :current_navigation_section, :projects
 
-section
+section.bg-primary
   .container.container-small
     h1.text-center
       = @project.title
+    p.lead.text-center
+      = @project.teaser
 
+section
+  .container.container-small
     - if @project.pictures.any?
       = image_tag @project.pictures.first.asset.url(:list), class:"img-responsive img-center medium-margin-below", alt:"{#@project.pictures.first.asset.alt}"
-
-    p.lead = @project.teaser
 
     p = raw @project.description
 
 
 section.bg-primary
   .container.container-small
-    h3 Mon job sur le projet :
-    ul
-      - @project.tasks.each do |task|
-        li = task.title
+    .row
+      .col-md-6
+        h3 Mon job sur le projet :
+        ul
+          - @project.tasks.each do |task|
+            li = task.title
+      .col-md-6.text-right.info-container
+        .info-capsule
+          p Catégorie
+          p.lead = @project.human_category
+        .info-capsule
+          - if @project.deployed_at
+            p Date de réalisation
+            p.lead = l(@project.deployed_at, format: :B_Y)
+        .info-capsule
+          - if @project.link
+            = link_to "Voir #{@project.title}", @project.link, class: "btn btn-default"
+    .row
+      .col-md-12.text-center
+        - @project.tags.each do |tag|
+          = render "projects/tags", tag: tag
 
 section
   .container.container-small
@@ -29,23 +48,19 @@ section
             .col-md-6
               = image_tag pic.asset.url(:list), class:"img-responsive img-center medium-margin-below", alt:"{#@project.pictures.first.asset.alt}"
 
-    p.text-center.medium-margin-below
-      - @project.tags.each do |tag|
-        = render "projects/tags", tag: tag
     .row
-      .col-sm-4
-        span = @project.human_category
-      .col-sm-4.text-center
-        - if @project.link
-          span.text-center
-            = link_to "Voir #{@project.title}", @project.link, class: "btn btn-secondary"
-      .col-sm-4.text-right
-        - if @project.deployed_at
-          span= l(@project.deployed_at, format: :B_Y)
+      .col-sm-4.text-left
+        - if @previous_project
+          = link_to project_path(@previous_project), class: "btn btn-secondary" do
+            span.fa.fa-chevron-circle-left'
+            =' @previous_project.title
 
-    br
-    br
-    p
-      = link_to "Suivant", "#", class: "btn btn-secondary pull-right"
-      = link_to "Précédent", "#", class: "btn btn-secondary"
+      .col-sm-4.text-center
+        = link_to projects_path, class:"icon" do
+          span.icon-big.fa.fa-th
+      .col-sm-4.text-right
+        - if @next_project
+          = link_to project_path(@next_project), class: "btn btn-secondary" do
+            =' @next_project.title
+            span.fa.fa-chevron-circle-right
 
