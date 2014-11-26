@@ -37,7 +37,7 @@ section.full-page
 
 section.bg-primary.full-page
   .container
-    h2.text-center.section-header A propos
+    h2.text-center.section-header Et pour en savoir plus
 
     .row
       .col-md-6
@@ -50,11 +50,11 @@ section.bg-primary.full-page
             p Dans le développement web depuis 2012 après une incursion dans le milieu culturel, je me suis spécialisée en Ruby on Rails et m'intéresse aussi à plein de frameworks javascript.
 
       .col-md-6
-        .well.clearfix
-          h3.text-center.small-margin-below On fait quelque chose ensemble ?
-          div data-ajax="contact-form"
-            / = render partial: "contacts/contact_success"
-            = render "contacts/contact_form", contact: @contact
+        / .well.clearfix
+        h3.text-center.small-margin-below On fait quelque chose ensemble ?
+        div data-ajax="contact-form"
+          / = render partial: "contacts/contact_success"
+          = render "contacts/contact_form", contact: @contact
 
 
 coffee:
