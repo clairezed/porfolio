@@ -42,51 +42,51 @@
 
 
 - if f.object.persisted?
-hr
-.row
-  .col-md-6
-    fieldset
-      legend Tags
+  hr
+  .row
+    .col-md-6
+      fieldset
+        legend Tags
 
-      .form-group
-        = label :new_tag, 'Ajouter un tag', class: "control-label col-xs-3"
-        = f.fields_for :new_tag do |fpt|
-          .col-xs-3
-            = text_field_tag 'tag_title', '', class: "form-control", \
-            data: {autocomplete_path: autocomplete_admin_tags_path(:json)},\
-            autocomplete: :off
-            = fpt.hidden_field :tag_id
-          .col-xs-1
-            =' link_to 'javascript:void(0)', class: "btn btn-info btn-sm", \
-              data: {path: check_admin_tag_path, add_tags: f.object.id} do
-              ' +
+        .form-group
+          = label :new_tag, 'Ajouter un tag', class: "control-label col-xs-3"
+          = f.fields_for :new_tag do |fpt|
+            .col-xs-3
+              = text_field_tag 'tag_title', '', class: "form-control", \
+              data: {autocomplete_path: autocomplete_admin_tags_path(:json)},\
+              autocomplete: :off
+              = fpt.hidden_field :tag_id
+            .col-xs-1
+              =' link_to 'javascript:void(0)', class: "btn btn-info btn-sm", \
+                data: {path: check_admin_tag_path, add_tags: f.object.id} do
+                ' +
 
-      .form-group
-        = f.label :tags, class: "control-label col-xs-3"
-        .form-control-static
-          ul.list-inline data-tags="list"
-            = render 'tags_list', project_tags: f.object.project_tags
-  .col-md-6
-    fieldset
-      legend Tâches
+        .form-group
+          = f.label :tags, class: "control-label col-xs-3"
+          .form-control-static
+            ul.list-inline data-tags="list"
+              = render 'tags_list', project_tags: f.object.project_tags
+    .col-md-6
+      fieldset
+        legend Tâches
 
-      .form-group
-        = label :new_task, 'Ajouter une tâche', class: "control-label col-xs-3"
-        = f.fields_for :new_task do |fpt|
-          .col-xs-3
-            = text_field_tag 'task_title', '', class: "form-control", \
-            data: {autocomplete_path: autocomplete_admin_tasks_path(:json)},\
-            autocomplete: :off
-            = fpt.hidden_field :task_id
-          .col-xs-1
-            =' link_to 'javascript:void(0)', class: "btn btn-info btn-sm", \
-              data: {path: check_admin_task_path, add_tasks: f.object.id} do
-              ' +
+        .form-group
+          = label :new_task, 'Ajouter une tâche', class: "control-label col-xs-3"
+          = f.fields_for :new_task do |fpt|
+            .col-xs-3
+              = text_field_tag 'task_title', '', class: "form-control", \
+              data: {autocomplete_path: autocomplete_admin_tasks_path(:json)},\
+              autocomplete: :off
+              = fpt.hidden_field :task_id
+            .col-xs-1
+              =' link_to 'javascript:void(0)', class: "btn btn-info btn-sm", \
+                data: {path: check_admin_task_path, add_tasks: f.object.id} do
+                ' +
 
-      .form-group
-        .col-xs-8
-          div data-tasks="list"
-            = render 'tasks_list', project_tasks: f.object.project_tasks
+        .form-group
+          .col-xs-8
+            div data-tasks="list"
+              = render 'tasks_list', project_tasks: f.object.project_tasks
 
 fieldset
   legend Diaporama
