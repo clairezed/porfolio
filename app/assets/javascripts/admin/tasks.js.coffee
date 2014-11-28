@@ -63,9 +63,22 @@ class @Tasks
         error: ->
           flash("Erreur", 'danger')
 
+ # Changement position d'un task ----------------------------------------------------------------------
+    $("[data-tasks='list']").on 'change', "[data-position-task]", ->
+      $.ajax $(@).data("path"),
+        data:
+          position: $(@).val(),
+          p_task: $(@).data('add-tasks')
+        type: "patch",
+        dataType: "html",
+        success: (html) ->
+          $("[data-tasks='list']").html(html)
+        error: ->
+          flash("Erreur", 'danger')
+
     # Suppression d'un task ----------------------------------------------------------------------
     $("[data-tasks='list']").on 'ajax:success',  "[data-delete-task]", (e, data, status, xhr)->
-      flash("Le task a bien été supprimé", 'success')
+      flash("La tâche a bien été supprimée du projet", 'success')
       $("[data-tasks='list']").html(data)
       $("#task_title").val('').focus()
 

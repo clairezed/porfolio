@@ -34,9 +34,10 @@
               span.text-muted -
           td: small=' check_box_tag :toggle_visible, true, project.visible?, data: {toggle: 'visible', path: toggle_visible_admin_project_path(project)}
           td: small=' check_box_tag :toggle_highlighted, true, project.highlighted?, data: {toggle: 'highlighted', path: toggle_highlighted_admin_project_path(project)}
-          td = form_tag position_admin_project_path(project), method: :patch do
-                = select_tag :position, options_for_select( position_select, project.position ),\
-                  onchange: '$(this).parent().submit();', class: "form-control input-sm", style: "width:70px", id: nil
+          td
+            = form_tag position_admin_project_path(project), method: :patch do
+              = select_tag :position, options_for_select( position_select, project.position ),\
+                onchange: '$(this).parent().submit();', class: "form-control input-sm", style: "width:70px", id: nil
 
           td.action-btns
             =' link_to raw("<span class='glyphicon glyphicon-pencil'></span>"), edit_admin_project_path(project),\

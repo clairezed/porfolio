@@ -1,17 +1,17 @@
 - if project_tasks.any?
-  table.table
+  table.table.table-condensed
     tbody
       - max_position    = project_tasks.persisted.map( &:position ).compact.max || 1
       - position_select = (1..max_position).map {|i| [i,i] }
 
-      - project_tasks.persisted.each do |p_task|
+      - project_tasks.persisted.order(:position).each do |p_task|
         tr
           td colspan="8"
             = p_task.task.title
-          td 
+          td
             = form_tag position_admin_project_task_path(p_task), method: :patch do
               = select_tag :position, options_for_select( position_select, p_task.position ),\
-                onchange: '$(this).parent().submit();', class: "form-control input-sm", style: "width:70px", id: nil
+                class: "form-control input-sm", style: "width:70px", data:{position_task: p_task.id, path: position_admin_project_task_path(p_task)}
           td colspan="1"
             = link_to "X", admin_project_task_path(p_task), method: :delete, remote: true, data:{delete_task: p_task.id}, class:"btn btn-danger btn-xs"
 

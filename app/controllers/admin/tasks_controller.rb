@@ -21,7 +21,7 @@ class Admin::TasksController < Admin::BaseController
     if project.project_tasks.create(task_id: task.id)
       render partial: "admin/projects/tasks_list", locals: {project_tasks: project.project_tasks}
     else
-      flash[:error] = "Une erreur s'est produite lors de la création du projet"
+      flash[:error] = "Une erreur s'est produite lors de la création de la tâche"
       render nothing: true
     end
   end
@@ -29,9 +29,9 @@ class Admin::TasksController < Admin::BaseController
   def destroy
     @task = Task.find params[:id]
     begin
-      flash[:notice] = "Le tâsk a bien été supprimé" if @task.destroy
+      flash[:notice] = "La tâche a bien été supprimée" if @task.destroy
     rescue ActiveRecord::DeleteRestrictionError => e
-      flash[:error] = "Ce tâsk ne peut être supprimé car des éléments lui sont dépendants"
+      flash[:error] = "Cette tâche ne peut être supprimée car des éléments lui sont dépendants"
     end
     redirect_to admin_tasks_path
   end

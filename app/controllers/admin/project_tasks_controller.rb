@@ -4,7 +4,6 @@ class Admin::ProjectTasksController < Admin::BaseController
   before_filter :find_project_task
 
   def position
-    raise @project_task.inspect
     if params[:position].present?
       @project_task.insert_at params[:position].to_i
       render partial: "admin/projects/tasks_list", locals: {project_tasks: @project.project_tasks}

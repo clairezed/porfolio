@@ -84,11 +84,9 @@ hr
               ' +
 
       .form-group
-        / = f.label :tasks, "Tâches", class: "control-label col-xs-3"
         .col-xs-8
-          .form-control-static
-            div data-tasks="list"
-              = render 'tasks_list', project_tasks: f.object.project_tasks
+          div data-tasks="list"
+            = render 'tasks_list', project_tasks: f.object.project_tasks
 
 fieldset
   legend Diaporama

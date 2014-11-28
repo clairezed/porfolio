@@ -4,7 +4,7 @@ class Admin::ProjectsController < Admin::BaseController
     :position, :sort_picture, :toggle_visible, :toggle_highlighted ]
 
   def index
-    params[:sort] ||= "sort_by_created_at desc"
+    params[:sort] ||= "sort_by_position asc"
     @projects = Project.apply_filters(params).paginate(per_page: 10, page: params[:page])
   end
 
