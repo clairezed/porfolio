@@ -2,6 +2,8 @@ class ProjectTask < ActiveRecord::Base
 
   # Configs =========================
 
+  acts_as_list scope: [:project]
+
   # Associations =====================
 
   belongs_to :task

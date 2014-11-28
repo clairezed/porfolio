@@ -29,9 +29,9 @@ class Admin::TasksController < Admin::BaseController
   def destroy
     @task = Task.find params[:id]
     begin
-      flash[:notice] = "Le task a bien été supprimé" if @task.destroy
+      flash[:notice] = "Le tâsk a bien été supprimé" if @task.destroy
     rescue ActiveRecord::DeleteRestrictionError => e
-      flash[:error] = "Ce task ne peut être supprimé car des éléments lui sont dépendants"
+      flash[:error] = "Ce tâsk ne peut être supprimé car des éléments lui sont dépendants"
     end
     redirect_to admin_tasks_path
   end

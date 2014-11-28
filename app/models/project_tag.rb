@@ -1,6 +1,7 @@
 class ProjectTag < ActiveRecord::Base
 
   # Configs =========================
+  acts_as_list scope: [:project]
 
   # Associations =====================
 
