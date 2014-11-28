@@ -20,9 +20,6 @@ class Tag < ActiveRecord::Base
 
   # Callbacks =====================
 
-  # before_validation :sanitize_url
-
-
   # Scopes =====================
 
   scope :by_title, ->(val) {
@@ -61,10 +58,4 @@ class Tag < ActiveRecord::Base
 
   private #==========================================================
 
-   # ajoute "http://" à l'url s'il n'y est pas déjà.
-  def sanitize_url
-    if self.link.present? && (self.link =~ %r{\Ahttps?://}).nil?
-      self.link = "http://#{self.link}"
-    end
-  end
 end

@@ -11,6 +11,22 @@
   margin-top: 1em
   margin-bottom: 2em
 
+.middle-section
+  h2
+    margin-top: 0
+    font-size: $font-size-h4
+    font-family: $font-family-sans-serif
+  .info-capsule
+    margin-bottom: 18px
+  .label
+    font-size: 100%
+  &.bg-primary
+    .label
+      background-color: $brand-secondary
+
+.display-middle
+  margin-top: 50%
+
 // BUTTONS ======================================
 .btn-secondary
   @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border)
@@ -66,12 +82,11 @@
 
 .settings
   width: 100%
-  border: 1px solid $brand-secondary
   margin-bottom: 1.5em
   .settings-header
-    background-color: $brand-secondary
     color: #fff
     padding: 10px
+    border-bottom : 1px solid #fff
   h3
     margin: 0
     font-size: 18px

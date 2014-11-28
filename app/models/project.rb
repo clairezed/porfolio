@@ -35,6 +35,7 @@ class Project < ActiveRecord::Base
   before_validation :sanitize_url
 
 
+
   # Scopes =====================
 
   scope :by_title, ->(val) {
@@ -116,8 +117,8 @@ class Project < ActiveRecord::Base
 
    # ajoute "http://" à l'url s'il n'y est pas déjà.
   def sanitize_url
-    if self.link.present? && (self.link =~ %r{\Ahttps?://}).nil?
-      self.link = "http://#{self.link}"
+    if self.web_link.present? && (self.web_link =~ %r{\Ahttps?://}).nil?
+      self.web_link = "http://#{self.web_link}"
     end
   end
 

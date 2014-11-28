@@ -4,10 +4,6 @@ class Task < ActiveRecord::Base
 
   include Sortable
 
-  #TODO : ordonnancement des taches
-  # acts_as_list
-
-
   # Associations =====================
 
   has_many :project_tasks, dependent: :restrict_with_exception
@@ -19,8 +15,6 @@ class Task < ActiveRecord::Base
 
 
   # Callbacks =====================
-
-  # before_validation :sanitize_url
 
 
   # Scopes =====================
@@ -61,10 +55,4 @@ class Task < ActiveRecord::Base
 
   private #==========================================================
 
-   # ajoute "http://" à l'url s'il n'y est pas déjà.
-  def sanitize_url
-    if self.link.present? && (self.link =~ %r{\Ahttps?://}).nil?
-      self.link = "http://#{self.link}"
-    end
-  end
 end

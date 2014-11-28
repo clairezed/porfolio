@@ -1,21 +1,24 @@
 - content_for :current_navigation_section, :projects
 
-.container
-  h1.text-center.section-header Tous les projets
+section.bg-primary
+  .container
+    h1.text-center.section-header Tous les projets
 
-  .row
-    .col-xs-12
-      .settings
-        .settings-header
-          h3
-            span.glyphicon.glyphicon-cog
-            ' Trier
-        .settings-body
-          - @tags.each do |tag|
-            = render "projects/tags", tag: tag
-
-  - @projects.each_slice(3) do |slice|
     .row
-      - slice.each do |project|
-        .col-sm-6.col-md-4
-          = render "projects/project_thumbnail", project: project
+      .col-xs-12
+        .settings
+          .settings-header
+            h3
+              span.glyphicon.glyphicon-cog
+              ' Trier
+          .settings-body
+            - @tags.each do |tag|
+              = render "projects/tags", tag: tag
+
+section
+  .container
+    - @projects.each_slice(3) do |slice|
+      .row
+        - slice.each do |project|
+          .col-sm-6.col-md-4
+            = render "projects/project_thumbnail", project: project

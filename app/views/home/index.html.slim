@@ -9,7 +9,7 @@ section.bg-primary.full-page
   .container
     .row
       .col-sm-3.col-sm-offset-9.col-xs-5.col-xs-offset-7
-        h6.text-right.section-header
+        h6.text-right.section-header.display-middle
           | Et aussi : je n'avais pas envie de mettre d'image cache-misère en fond de page d'accueil.
 
 section.full-page
@@ -22,19 +22,6 @@ section.full-page
           .col-sm-6.col-md-4
             = render "projects/project_thumbnail", project: project
 
-      .col-sm-6.col-md-4
-        .thumbnail
-          img.img-responsive alt="..." src="http://placehold.it/400x275"
-          .caption
-            h3 Bullshit Bingo
-            p Web application entièrement temps réel permettant de créer ses grilles de bingo et jouer au bullshit bingo à plusieurs.
-            p
-              span.label.label-default Meteor
-              span.label.label-default Temps réel
-              span.label.label-default Web application
-            p.text-right
-              a.btn.btn-primary href="#" role="button"  Je veux en savoir plus !
-
 section.bg-primary.full-page
   .container
     h2.text-center.section-header Et pour en savoir plus
@@ -42,15 +29,15 @@ section.bg-primary.full-page
     .row
       .col-md-6
         h3.text-center.small-margin-below
-          | Une développeuse qui aime l'orange
+          | L'inévitable laïus auto-centré
         .row
           .col-sm-4.medium-margin-below
             img.img-responsive.img-circle alt="..." src="http://placehold.it/200x200"
           .col-sm-8.medium-margin-below
-            p Dans le développement web depuis 2012 après une incursion dans le milieu culturel, je me suis spécialisée en Ruby on Rails et m'intéresse aussi à plein de frameworks javascript.
+            p Développeuse web depuis 2012 après une incursion de quelques années dans le milieu culturel, je me suis spécialisée en Ruby on Rails.
+            p A côté du langage ruby sur lequel je passe le plus clair de mes journées, je développe aussi des projets à titre personnel, tant côté back-end que front-end, en me plongeant dans un tas de frameworks javascript.
 
       .col-md-6
-        / .well.clearfix
         h3.text-center.small-margin-below On fait quelque chose ensemble ?
         div data-ajax="contact-form"
           / = render partial: "contacts/contact_success"
@@ -59,36 +46,3 @@ section.bg-primary.full-page
 
 coffee:
   Contact.init()
-  #$('.contact_form').on "ajax:success", (e, data, status, xhr) ->
-   # console.log("success")
-  #$('.contact_form').on "ajax:error", (event, xhr, error) ->
-   # console.log("error")
-
-
-/ = form_for(@contact, as: :contact, url: contacts_path, remote: true, \
-/   html: { class: "form-horizontal contact_form"}) do |f|
-
-/   = f.shb_form_errors
-/   = f.shb_text_field :lastname, { placeholder: "Votre nom"}, {class: "required picto name"}
-/   = f.shb_text_field :firstname, { placeholder: "Votre prénom" }, {class: "picto name" }
-/   = f.shb_text_field :company, { placeholder: "Votre société" }, {class: "required picto briefcase" }
-/   = f.shb_email_field :email, { placeholder: "Votre e-mail" }, {class: "required picto e-mail"}
-/   = f.shb_text_field :phone, { placeholder: "Votre téléphone" }, {class: "picto phone"}
-/   = f.shb_text_area :message, { rows:"5", placeholder: "Entrez votre message ici" }, { }
-/   = hidden_field_tag :format, "form_h"
-
-/   .form-group
-/     .form-actions.text-right
-/       =' f.submit "Envoyer", class: "btn btn-primary btn-sm", style: "margin-right: 2px", id: "submit_and_leave"
-
-
-/ javascript:
-/   var success_path = '#{contacts_path}';
-/ coffee:
-/   $('.contact_form').on "ajax:success", ->
-/     window.location = success_path
-/   $('.contact_form').on "ajax:error", (event, xhr, error) ->
-/     if xhr.status is 422
-/       $("#form").html(xhr.responseText)
-/     else
-/       alert("Une erreur technique s'est produite. Veuillez réessayer ultérieurement")

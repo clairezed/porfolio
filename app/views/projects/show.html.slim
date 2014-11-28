@@ -15,25 +15,25 @@ section
     p = raw @project.description
 
 
-section.bg-primary
+section.bg-primary.middle-section
   .container.container-small
     .row
-      .col-md-6
-        h3 Mon job sur le projet :
+      .col-sm-6
+        h2 Mon job sur le projet :
         ul
           - @project.tasks.each do |task|
             li = task.title
-      .col-md-6.text-right.info-container
+      .col-sm-6.text-right.info-container
         .info-capsule
-          p Catégorie
-          p.lead = @project.human_category
+          h2 Catégorie
+          p = @project.human_category
         .info-capsule
           - if @project.deployed_at
-            p Date de réalisation
-            p.lead = l(@project.deployed_at, format: :B_Y)
+            h2 Date de réalisation
+            p = l(@project.deployed_at, format: :B_Y)
         .info-capsule
-          - if @project.link
-            = link_to "Voir #{@project.title}", @project.link, class: "btn btn-default"
+          - if @project.web_link.present?
+            = link_to "Voir #{@project.title}", @project.web_link, class: "btn btn-default"
     .row
       .col-md-12.text-center
         - @project.tags.each do |tag|
@@ -47,7 +47,7 @@ section
           - slice.each do |pic|
             .col-md-6
               = image_tag pic.asset.url(:list), class:"img-responsive img-center medium-margin-below", alt:"{#@project.pictures.first.asset.alt}"
-
+    hr
     .row
       .col-sm-4.text-left
         - if @previous_project
