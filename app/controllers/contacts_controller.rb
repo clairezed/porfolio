@@ -5,6 +5,7 @@ class ContactsController < ApplicationController
   end
 
   def create
+    # raise params.inspect
     @contact = Contact.new(contact_params)
     if @contact.save
       render partial: "contacts/contact_success"
