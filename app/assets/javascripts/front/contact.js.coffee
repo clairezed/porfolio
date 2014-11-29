@@ -1,11 +1,10 @@
 class @Contact
 
   @init = ->
-    console.log "init !"
 
     $("[data-ajax='contact-form']").on "ajax:success", '.contact-form', (e, data, status, xhr) ->
-      console.log "success"
-      $("[data-ajax='contact-form']").html(data)
+      $("[data-ajax='contact-form']").fadeOut ->
+        $("[data-ajax='contact-form']").html(data).hide().fadeIn('slow')
 
     $("[data-ajax='contact-form']").on "ajax:error", '.contact-form', (event, xhr, error) ->
       console.log "error"
