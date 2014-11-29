@@ -11,7 +11,7 @@ class Contact < ActiveRecord::Base
   validates :subject, presence: true
   validates :message, presence: true
 
-  # after_create :notify_admin
+  after_create :notify_admin
 
   # Scopes =====================================================================
 
@@ -41,7 +41,7 @@ class Contact < ActiveRecord::Base
   private #=====================================================================
 
   def notify_admin
-    AdminMailer.contact_created(self).deliver
+    AdminMailer.new_contact(self).deliver
   end
 
 end

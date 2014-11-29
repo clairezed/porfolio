@@ -79,4 +79,27 @@ Portfolio01::Application.configure do
   config.middleware.insert_after(::Rack::Runtime, "::Rack::Auth::Basic", "Production") do |u, p|
     [u, p] == [ENV['SITE_USERNAME'], ENV['SITE_SECRET']]
   end
+
+  SYSTEM_MAILER = "Clairezed  <noreply@clairezed.com>"
+  DEFAULT_RECIPIENT = ["clairezuliani@gmail.com"]
+
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => 'heroku.com'
+  }
+  ActionMailer::Base.delivery_method = :smtp
+
+  # Exception notification
+  config.middleware.use ExceptionNotification::Rack,
+    :email => {
+      :email_prefix => "[Clairezed portfolio] ",
+      :sender_address => %{"Error Notification" <error@clairzed.com>},
+      :exception_recipients => %w{clairezuliani@gmail.com},
+      :sections => %w{request backtrace session environment}
+    }
+
 end
