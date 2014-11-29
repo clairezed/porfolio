@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "2.1.4"
 
 #= CORE =================================
 gem 'rails', '4.1.7'
@@ -34,6 +35,7 @@ gem 'paperclip', '~> 4.2.0'
 #= PRODUCTION =====================
 group :production, :staging do
   gem 'exception_notification', '~> 4.0.1'
+  gem 'rails_12factor'
 end
 
 #= DEV ============================
