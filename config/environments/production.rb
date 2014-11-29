@@ -80,6 +80,11 @@ Portfolio01::Application.configure do
     [u, p] == [ENV['SITE_USERNAME'], ENV['SITE_SECRET']]
   end
 
+  HOST = "clairezed.herokuapp.com"
+
+  config.action_mailer.default_url_options = { :host => HOST }
+  config.action_mailer.asset_host = "http://#{HOST}"
+
   SYSTEM_MAILER = "Clairezed  <noreply@clairezed.com>"
   DEFAULT_RECIPIENT = ["clairezuliani@gmail.com"]
 
