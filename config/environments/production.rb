@@ -77,6 +77,6 @@ Portfolio01::Application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.middleware.insert_after(::Rack::Runtime, "::Rack::Auth::Basic", "Production") do |u, p|
-    [u, p] == ['username', 'password']
+    [u, p] == [ENV['SITE_USERNAME'], ENV['SITE_SECRET']]
   end
 end
