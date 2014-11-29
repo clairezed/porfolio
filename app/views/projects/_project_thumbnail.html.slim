@@ -1,8 +1,9 @@
 .thumbnail
-  - if project.pictures.any?
-    = image_tag project.pictures.first.asset.url(:list), class:"img-responsive", alt:"{#project.pictures.first.asset.alt}"
-  - else
-      img.img-responsive alt="..." src="http://placehold.it/500x350"
+  = link_to project_path(project) do
+    - if project.pictures.any?
+      = image_tag project.pictures.first.asset.url(:list), class:"img-responsive", alt:"{#project.pictures.first.asset.alt}"
+    - else
+        img.img-responsive alt="..." src="http://placehold.it/500x350"
   .caption
     h3 = project.title
     p = project.teaser

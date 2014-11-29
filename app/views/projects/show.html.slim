@@ -10,7 +10,7 @@ section.bg-primary
 section
   .container.container-small
     - if @project.pictures.any?
-      = image_tag @project.pictures.first.asset.url(:list), class:"img-responsive img-center medium-margin-below", alt:"{#@project.pictures.first.asset.alt}"
+      = image_tag @project.pictures.first.asset.url(:large), class:"img-responsive img-center medium-margin-below", alt:"{#@project.pictures.first.asset.alt}"
 
     p = raw @project.description
 
