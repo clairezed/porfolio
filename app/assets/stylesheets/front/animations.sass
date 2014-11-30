@@ -1,0 +1,87 @@
+// Default
+
+.animated
+  @include animation-duration(1s)
+  @include animation-fill-mode(both)
+  &.infinite
+    @include animation-iteration-count(infinite)
+  &.hinge
+    @include animation-duration(2s)
+
+
+
+// Pulse -------------------------------------------
+
+@-webkit-keyframes pulse
+  0%
+    @include transform(scale(1, 1, 1))
+    transform: scale(1, 1, 1)
+  50%
+    -webkit-transform: scale(1.03, 1.03, 1.03)
+    transform: scale(1.03, 1.03, 1.03)
+  100%
+    -webkit-transform: scale(1, 1, 1)
+    transform: scale(1, 1, 1)
+
+@keyframes pulse
+  0%
+    -webkit-transform: scale(1, 1, 1)
+    transform: scale(1, 1, 1)
+  50%
+    -webkit-transform: scale(1.03, 1.03, 1.03)
+    transform: scale(1.03, 1.03, 1.03)
+  100%
+    -webkit-transform: scale(1, 1, 1)
+    transform: scale(1, 1, 1)
+
+.pulse
+  @include animation-name(pulse)
+  @include animation-iteration-count(infinite)
+  @include animation-duration(2s)
+  @include animation-fill-mode(both)
+
+
+// FadeIn ------------------------------------------------------------
+
+@-webkit-keyframes fadeInRight
+  0%
+    opacity: 0
+    @include transform(translate3d(100%, 0, 0))
+  100%
+    opacity: 1
+    @include transform(none)
+
+@keyframes fadeInRight
+  0%
+    opacity: 0
+    @include transform(translate3d(100%, 0, 0))
+  100%
+    opacity: 1
+    @include transform(none)
+
+.fadeInRight
+  @include animation-name(fadeInRight)
+  @include animation-iteration-count(infinite)
+  @include animation-duration(2s)
+  @include animation-fill-mode(both)
+
+
+// Flash ------------------------------------------------------------
+
+@-webkit-keyframes flash
+  0%, 50%, 100%
+    opacity: 1
+  25%, 75%
+    opacity: 0.2
+
+@keyframes flash
+  0%, 50%, 100%
+    opacity: 1
+  25%, 75%
+    opacity: 0.2
+
+.flash
+  @include animation-name(flash)
+  @include animation-iteration-count(infinite)
+  @include animation-duration(3s)
+  @include animation-fill-mode(both)

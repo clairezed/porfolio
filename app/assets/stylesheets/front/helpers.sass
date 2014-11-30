@@ -3,6 +3,17 @@
 // helpers
 
 
+@mixin keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+
+
 .img-circle
   border-radius: 50%
   margin: 0 auto

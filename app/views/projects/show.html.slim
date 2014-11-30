@@ -51,16 +51,16 @@ section
     .row
       .col-sm-4.text-left
         - if @previous_project
-          = link_to project_path(@previous_project), class: "btn btn-secondary" do
-            span.fa.fa-chevron-circle-left'
+          = link_to project_path(@previous_project), class: "btn btn-secondary floating" do
+            span.fa.fa-chevron-left'
             =' @previous_project.title
 
       .col-sm-4.text-center
-        = link_to projects_path, class:"icon" do
+        = link_to projects_path, class:"icon", title:"retour à la liste des projets" do
           span.icon-big.fa.fa-th
       .col-sm-4.text-right
         - if @next_project
-          = link_to project_path(@next_project), class: "btn btn-secondary" do
+          = link_to project_path(@next_project), class: "btn btn-secondary floating" do
             =' @next_project.title
-            span.fa.fa-chevron-circle-right
+            span.fa.fa-chevron-right
 

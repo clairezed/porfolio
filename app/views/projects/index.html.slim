@@ -9,8 +9,8 @@ section.bg-primary
         .settings
           .settings-header
             h3
-              span.glyphicon.glyphicon-cog
-              ' Trier
+              ' Filtrer
+              span.glyphicon.glyphicon-cog'
           .settings-body
             - @tags.each do |tag|
               = render "projects/tags", tag: tag

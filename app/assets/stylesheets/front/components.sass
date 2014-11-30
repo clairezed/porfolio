@@ -76,6 +76,8 @@
 
 // THUMBNAIL ======================================
 
+
+
 .thumbnail
   position: relative
   .caption
@@ -87,9 +89,15 @@
     width: 100%
   &:hover
     @include box-shadow(2px 2px 13px 0px rgba(0,0,0,.1))
+    .pulse-hover
+      @extend .flash
     .btn-secondary
-      background-color: $brand-secondary-dark
+      // background-color: $brand-secondary-dark
 
+
+
+
+// SETTINGS =======================================
 .settings
   width: 100%
   margin-bottom: 1.5em
