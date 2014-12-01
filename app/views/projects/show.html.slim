@@ -15,7 +15,7 @@ section
     p = raw @project.description
 
 
-section.bg-primary.middle-section
+section.bg-primary.middle-section.project-info
   .container.container-small
     .row
       .col-sm-6
@@ -23,7 +23,7 @@ section.bg-primary.middle-section
         ul
           - @project.tasks.each do |task|
             li = task.title
-      .col-sm-6.text-right.info-container
+      .col-sm-6.info-container
         .info-capsule
           h2 Catégorie
           p = @project.human_category
@@ -49,16 +49,16 @@ section
               = image_tag pic.asset.url(:list), class:"img-responsive img-center medium-margin-below", alt:"{#@project.pictures.first.asset.alt}"
     hr
     .row
-      .col-sm-4.text-left
+      .col-xs-4.text-left
         - if @previous_project
           = link_to project_path(@previous_project), class: "btn btn-secondary floating" do
             span.fa.fa-chevron-left'
             =' @previous_project.title
 
-      .col-sm-4.text-center
+      .col-xs-4.text-center
         = link_to projects_path, class:"icon", title:"retour à la liste des projets" do
           span.icon-big.fa.fa-th
-      .col-sm-4.text-right
+      .col-xs-4.text-right
         - if @next_project
           = link_to project_path(@next_project), class: "btn btn-secondary floating" do
             =' @next_project.title

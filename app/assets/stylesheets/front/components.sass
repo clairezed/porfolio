@@ -48,6 +48,9 @@
 .btn.floating
   @include box-shadow(0px 2px 6px 0px rgba(0,0,0,.2))
   transition: box-shadow 0.2s
+  // border-bottom: 3px solid darken($brand-secondary, 10%)
+  // border-right: 3px solid darken($brand-secondary, 10%)
+  // border-top: 2px solid lighten($brand-secondary, 15%)
   &:active
     @include box-shadow(0px 1px 3px 0px rgba(0,0,0,.1))
 
@@ -58,6 +61,8 @@
   padding: .2em .8em .3em
   border-radius: 1em
   margin-right: 0.5em
+  margin-top: 1em
+  display: inline-block
   &:last-child
     margin-right: 0
   &:hover
