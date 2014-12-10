@@ -6,12 +6,12 @@ section.bg-primary
 
     .row
       .col-xs-12
-        .settings
-          .settings-header
+        .settings data-container=""
+          .settings-header data-toggle="close"
             h3
               ' Filtrer
               span.glyphicon.glyphicon-cog'
-          .settings-body
+          .settings-body data-settings-body=""
             - @tags.each do |tag|
               = render "projects/tags", tag: tag
 
@@ -29,3 +29,6 @@ section
           - slice.each do |project|
             .col-sm-6
               = render "projects/project_thumbnail", project: project
+
+coffee:
+  Projects.init()

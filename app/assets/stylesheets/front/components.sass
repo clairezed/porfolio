@@ -11,6 +11,10 @@
   margin-top: 1em
   margin-bottom: 2em
 
+@media (max-width: $screen-xs-max)
+  h1.v-adaptive
+    font-size: 24px
+
 .middle-section
   h2
     margin-top: 0
@@ -103,18 +107,47 @@
 
 
 // SETTINGS =======================================
+
+@-webkit-keyframes open-setting
+  0%
+
+
+// selecteur {
+//   transition: <transition-property> <transition-duration> <transition-timing-function> <transition-delay>,
+//   <transition-property> <transition-duration> <transition-timing-function> <transition-delay>;
+// }
 .settings
-  width: 100%
-  margin-bottom: 1.5em
+  float: left
+  width: 10%
+  min-width: 110px
+  // margin-bottom: 1.5em
   .settings-header
+    cursor: pointer
     color: #fff
     padding: 10px
     border-bottom : 1px solid #fff
+  .settings-body
+    padding: 10px
+    max-height: 0
+    overflow: hidden
   h3
     margin: 0
     font-size: 18px
-  .settings-body
-    padding: 10px
+
+  &.open-setting
+    width: 100%
+    @include transition(width 1s ease-out)
+    .settings-body
+      max-height: 200px
+      @include transition(max-height 1s ease-out 1s)
+
+  &.close-setting
+    width: 10%
+    @include transition(width 1s ease-in 1.5s)
+    .settings-body
+      @include transition(max-height 1.2s ease-in)
+
+
 
 
 // WELL =======================================
