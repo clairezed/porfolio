@@ -4,7 +4,7 @@ class @Tags
 
     # Tag autocomplete --------------------------------------------------------------------------
 
-    $input = $("#tag_title")
+    $input = $("[data-input='tag_title']")
 
     tags_engine = new Bloodhound
       name: 'tags'
@@ -25,37 +25,18 @@ class @Tags
         source: tags_engine.ttAdapter()
       })
 
-
-    #// à la sélection d'un résultat
-    #$input.on 'typeahead:selected', (evt, elt) ->
-     # console.log(elt)
-     # if elt.title
-      #  $.ajax
-      #    url: $input.data('geocode-path')
-      #    data: {val: elt.description}
-      #    type: "get"
-      #    dataType: "json"
-      #    success: (data) ->
-      #      $('#user_latitude').val(data[0])
-      #      $('#user_longitude').val(data[1])
-      #    error: ->
-      #      flash("Une erreur est survenue", 'danger')
-      #    complete: ->
-
-
     # Ajout d'un tag --------------------------------------------------------------------------
-    $("#tag_title").keydown (e) ->
+    $input.keydown (e) ->
       if e.keyCode is 13
         e.preventDefault()
         $("[data-add-tags]").click()
 
-
     $("[data-add-tags]").on 'click', ->
       $.ajax $(@).data("path"),
         data:
-          tag_title: $("#tag_title").val(),
+          title: $("#tag_title").val(),
           project_id: $(@).data('add-tags')
-        type: "put",
+        type: "post",
         dataType: "html",
         success: (html) ->
           $("[data-tags='list']").html(html)

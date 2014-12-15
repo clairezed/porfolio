@@ -1,7 +1,7 @@
 class Admin::ProjectTasksController < Admin::BaseController
 
   before_filter :check_referer_host, only: [:destroy]
-  before_filter :find_project_task
+  before_filter :find_project_and_project_task
 
   def position
     if params[:position].present?
@@ -24,7 +24,7 @@ class Admin::ProjectTasksController < Admin::BaseController
 
   private
 
-  def find_project_task
+  def find_project_and_project_task
     @project_task = ProjectTask.find params[:id]
     @project = @project_task.project
   end

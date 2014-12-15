@@ -21,7 +21,6 @@ class Project < ActiveRecord::Base
 
 
   accepts_nested_attributes_for :pictures, allow_destroy: true
-  accepts_nested_attributes_for :project_tags, allow_destroy: true
 
   # Validations =====================
 
@@ -67,10 +66,6 @@ class Project < ActiveRecord::Base
         klass = klass.by_tag(params[:by_tag])
       end
 
-      # if params[:by_category].present?
-      #   klass = klass.by_category(params[:by_category])
-      # end
-
     klass.apply_sorts(params)
 
   end
@@ -91,14 +86,8 @@ class Project < ActiveRecord::Base
 
   # Tags ---------------------------------------------
 
-   def new_tag_attributes=(attributes)
-    self.project_tags.delete(@new_tag) if @new_tag
-    @new_tag = self.project_tags.build(attributes)
-  end
-
   def new_tag
     @new_tag ||= self.project_tags.build()
-    # raise @new_tag.inspect
   end
 
   def new_task

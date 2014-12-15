@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   def set_default_seos!
     @seo_title       ||= "Claire Zuliani, portfolio"
     @seo_description ||= "Portfolio de Claire Zuliani, développeuse web full stack, ruby on rails et javascript"
-    @seo_keywords    ||= "claire zuliani, web development, ruby on rails, meteor, portfolio"
+    @seo_keywords    ||= "claire zuliani, web development, ruby on rails, meteor, portfolio, javascript"
   end
 
   # Pour les requêtes ajax

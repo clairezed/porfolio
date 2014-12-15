@@ -18,19 +18,15 @@ Rails.application.routes.draw do
       put :toggle_highlighted, on: :member
     end
     resources :tags, only: [:index, :destroy] do
-      put :check, on: :member
       get :autocomplete, on: :collection
-      # put :destroy_project_tag, on: :member
     end
     resources :tasks, only: [:index, :destroy] do
       put :check, on: :member
       get :autocomplete, on: :collection
-      # put :destroy_project_tag, on: :member
     end
-    resources :project_tags, only: [:destroy], concerns: :positionable
+    resources :project_tags, only: [:create, :destroy], concerns: :positionable
     resources :project_tasks, only: [:destroy], concerns: :positionable
     resources :contacts, only: [:index, :show, :destroy]
-
 
     root to: "contacts#index"
   end
@@ -38,8 +34,10 @@ Rails.application.routes.draw do
    # Front ==========================================
   resources :projects, only: [:index,:show], path: "projects"
 
-  # resources :contacts, only: [:new, :create, :index], path_names: {new: 'formulaire'}
-  resources :contacts, only: [:new, :create]
+  # resources :contacts, only: [:new, :create, :index]
+  resources :contacts, path: 'contact',
+    path_names: {new: ''},
+    only: [:new, :create]
 
 
   get "/:filename", to: "statics#show"

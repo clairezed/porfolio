@@ -50,7 +50,7 @@ class Admin::ProjectsController < Admin::BaseController
       @project.insert_at params[:position].to_i
       flash[:notice] = "Les projets ont été réordonnées avec succès"
     end
-    redirect_to admin_projects_path(by_category_id: params[:by_category_id])
+    redirect_to admin_projects_path
   end
 
   def destroy
