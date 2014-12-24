@@ -3,11 +3,11 @@
   table.table.table-striped.table-hover
     thead
       tr
-        th= shb_sort 'sort_by_created_at', label: 'Date de création'
-        th= shb_sort 'sort_by_email', label: 'Email'
-        th= shb_sort 'sort_by_subject', label: 'Objet'
+        th= custom_sort 'sort_by_created_at', label: 'Date de création'
+        th= custom_sort 'sort_by_email', label: 'Email'
+        th= custom_sort 'sort_by_subject', label: 'Objet'
         th Message
-        th= shb_sort 'sort_by_read', label: 'Etat'
+        th= custom_sort 'sort_by_read', label: 'Etat'
         th
     tbody
       - @contacts.each do |contact|

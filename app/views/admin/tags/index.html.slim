@@ -25,7 +25,7 @@ small= I18n.t("results", count: @tags.count)
     table.table.table-striped.table-hover
       thead
         tr
-          th= shb_sort 'sort_by_title', label: 'Tag'
+          th= custom_sort 'sort_by_title', label: 'Tag'
           th Nb projets
           th
       tbody

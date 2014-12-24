@@ -3,13 +3,13 @@
   table.table.table-striped.table-hover
     thead
       tr
-        th= shb_sort 'sort_by_deployed_at', label: 'Réalisation'
-        th= shb_sort 'sort_by_title', label: 'Titre'
-        th= shb_sort 'sort_by_category', label: 'Catégorie'
+        th= custom_sort 'sort_by_deployed_at', label: 'Réalisation'
+        th= custom_sort 'sort_by_title', label: 'Titre'
+        th= custom_sort 'sort_by_category', label: 'Catégorie'
         th Image
-        th= shb_sort 'sort_by_visible', label: 'Visible ?'
-        th= shb_sort 'sort_by_highlighted', label: 'En avant ?'
-        th= shb_sort 'sort_by_position', label: 'Position'
+        th= custom_sort 'sort_by_visible', label: 'Visible ?'
+        th= custom_sort 'sort_by_highlighted', label: 'En avant ?'
+        th= custom_sort 'sort_by_position', label: 'Position'
         th
     tbody
       - max_position    = @projects.map( &:position ).compact.max || 1
