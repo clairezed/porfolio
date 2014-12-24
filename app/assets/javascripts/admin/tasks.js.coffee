@@ -53,9 +53,9 @@ class @Tasks
     $("[data-add-tasks]").on 'click', ->
       $.ajax $(@).data("path"),
         data:
-          task_title: $("#task_title").val(),
+          title: $("#task_title").val(),
           project_id: $(@).data('add-tasks')
-        type: "put",
+        type: "post",
         dataType: "html",
         success: (html) ->
           $("[data-tasks='list']").html(html)

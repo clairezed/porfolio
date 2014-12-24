@@ -25,7 +25,7 @@ class ProjectTag < ActiveRecord::Base
 
   scope :persisted, -> {where.not(id: nil) }
 
-  # Class Methods
+  # Class Methods =============================
 
   def self.initialize_from_project(params)
     tag = Tag.where(title: params[:title]).first_or_create

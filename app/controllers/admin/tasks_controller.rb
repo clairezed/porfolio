@@ -14,18 +14,6 @@ class Admin::TasksController < Admin::BaseController
     respond_with result
   end
 
-  def check
-    task = Task.where(title: params[:task_title]).first_or_create
-    # raise params[:project_id].inspect
-    project = Project.find params[:project_id]
-    if project.project_tasks.create(task_id: task.id)
-      render partial: "admin/projects/tasks_list", locals: {project_tasks: project.project_tasks}
-    else
-      flash[:error] = "Une erreur s'est produite lors de la création de la tâche"
-      render nothing: true
-    end
-  end
-
   def destroy
     @task = Task.find params[:id]
     begin

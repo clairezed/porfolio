@@ -1,7 +1,17 @@
 class Admin::ProjectTasksController < Admin::BaseController
 
   before_filter :check_referer_host, only: [:destroy]
-  before_filter :find_project_and_project_task
+  before_filter :find_project_and_project_task, only: [:position, :destroy]
+
+  def create
+    # raise params.inspect
+    @project = Project.find(params[:project_id])
+    @project_task = ProjectTask.initialize_from_project(params.permit(:title, :project_id))
+    unless @project_task.save
+      flash[:error] = "Une erreur s'est produite lors de la création du tag"
+    end
+    render partial: "admin/projects/tasks_list", locals: {project_tasks: @project.project_tasks}
+  end
 
   def position
     if params[:position].present?
@@ -14,12 +24,10 @@ class Admin::ProjectTasksController < Admin::BaseController
   end
 
   def destroy
-    if @project_task.destroy
-      render partial: "admin/projects/tasks_list", locals: {project_tasks: @project.project_tasks}
-    else
+    unless @project_task.destroy
       flash[:error] = "Une erreur s'est produite lors de la suppression de la tâche"
-      render nothing: true
     end
+    render partial: "admin/projects/tasks_list", locals: {project_tasks: @project.project_tasks}
   end
 
   private

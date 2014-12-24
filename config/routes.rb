@@ -21,11 +21,10 @@ Rails.application.routes.draw do
       get :autocomplete, on: :collection
     end
     resources :tasks, only: [:index, :destroy] do
-      put :check, on: :member
       get :autocomplete, on: :collection
     end
     resources :project_tags, only: [:create, :destroy], concerns: :positionable
-    resources :project_tasks, only: [:destroy], concerns: :positionable
+    resources :project_tasks, only: [:create, :destroy], concerns: :positionable
     resources :contacts, only: [:index, :show, :destroy]
 
     root to: "contacts#index"
