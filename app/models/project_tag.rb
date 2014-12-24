@@ -20,6 +20,7 @@ class ProjectTag < ActiveRecord::Base
 
   # Callbacks =====================
 
+    after_destroy :try_tag_destruction
 
   # Scopes =====================
 
@@ -38,5 +39,11 @@ class ProjectTag < ActiveRecord::Base
 
 
   private #==========================================================
+
+  # Tentative systématique de destruction de la task
+  # rescue nil pour ne pas bloquer le processus qd destruction impossible
+  def try_tag_destruction
+    self.tag.destroy rescue nil
+  end
 
 end

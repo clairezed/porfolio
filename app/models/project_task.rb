@@ -21,6 +21,7 @@ class ProjectTask < ActiveRecord::Base
 
   # Callbacks =====================
 
+  after_destroy :try_task_destruction
 
   # Scopes =====================
 
@@ -39,6 +40,11 @@ class ProjectTask < ActiveRecord::Base
 
   # Instance Methods =====================
 
+  # Tentative systématique de destruction de la task
+  # rescue nil pour ne pas bloquer le processus qd destruction impossible
+  def try_task_destruction
+    self.task.destroy rescue nil
+  end
 
   private #==========================================================
 

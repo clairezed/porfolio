@@ -4,7 +4,6 @@ class Admin::ProjectTasksController < Admin::BaseController
   before_filter :find_project_and_project_task, only: [:position, :destroy]
 
   def create
-    # raise params.inspect
     @project = Project.find(params[:project_id])
     @project_task = ProjectTask.initialize_from_project(params.permit(:title, :project_id))
     unless @project_task.save
