@@ -30,7 +30,7 @@ gem "font-awesome-rails"
 
 #= UPLOADS ========================
 gem 'paperclip', '~> 4.2.0'
-
+gem 'aws-sdk', '~> 1.60.2'
 
 #= PRODUCTION =====================
 group :production, :staging do

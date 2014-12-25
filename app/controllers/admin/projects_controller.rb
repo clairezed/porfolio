@@ -31,7 +31,6 @@ class Admin::ProjectsController < Admin::BaseController
   end
 
   def update
-    params[:project].delete(:new_tag_attributes) if params[:project][:new_tag_attributes][:tag_id].blank?
     @project.attributes = project_params
     if @project.save
       (params[:project][:new_pictures] || []).each do |idx, picture_params|
