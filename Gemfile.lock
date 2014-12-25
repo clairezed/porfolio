@@ -72,6 +72,7 @@ GEM
       warden (~> 1.2.3)
     did_you_mean (0.8.0)
       interception
+    dotenv (1.0.2)
     erubis (2.7.0)
     exception_notification (4.0.1)
       actionmailer (>= 3.0.4)
@@ -184,6 +185,7 @@ DEPENDENCIES
   compass-rails
   devise (~> 3.4.1)
   did_you_mean
+  dotenv (~> 1.0.2)
   exception_notification (~> 4.0.1)
   font-awesome-rails
   htmlentities (~> 4.3.2)
