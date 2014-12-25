@@ -22,7 +22,7 @@ test:
 # Do not keep production secrets in the repository,
 # instead read values from the environment.
 production:
-  secret_key_base: <%= ENV["SECRET_KEY_BASE"] || "to_define" %>
-  s3_bucket_name: <%= ENV["S3_BUCKET_NAME"] || "to_define"%> #TODO
-  aws_access_key_id: <%= ENV["AWS_ACCESS_KEY_ID"] || "to_define"%>
-  aws_secret_access_key: <%= ENV["AWS_SECRET_ACCESS_KEY"] || "to_define"%>
+  secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
+  s3_bucket_name:      <%= ENV["S3_BUCKET_NAME"] || "to_define" %>
+  aws_access_key_id:   <%= ENV["AWS_ACCESS_KEY_ID"] || "to_define" %>
+  aws_secret_access_key:       <%= ENV["AWS_SECRET_ACCESS_KEY"] || "to_define" %>
