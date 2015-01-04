@@ -17,18 +17,7 @@ section.bg-primary
 
 section
   .container
-    .hidden-sm
-      - @projects.each_slice(3) do |slice|
-        .row
-          - slice.each do |project|
-            .col-md-4
-              = render "projects/project_thumbnail", project: project
-    .visible-sm
-      - @projects.each_slice(2) do |slice|
-        .row
-          - slice.each do |project|
-            .col-sm-6
-              = render "projects/project_thumbnail", project: project
+    = render "projects/projects_list", projects: @projects
 
 coffee:
   Projects.init()

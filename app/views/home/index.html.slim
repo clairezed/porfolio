@@ -15,19 +15,7 @@ section.bg-primary.full-page
 section.full-page
   .container
     h2.text-center.section-header Projets triés sur le volet
-
-    .hidden-sm
-      - @projects.each_slice(3) do |slice|
-        .row
-          - slice.each do |project|
-            .col-md-4
-              = render "projects/project_thumbnail", project: project
-    .visible-sm
-      - @projects.each_slice(2) do |slice|
-        .row
-          - slice.each do |project|
-            .col-sm-6
-              = render "projects/project_thumbnail", project: project
+    = render "projects/projects_list", projects: @projects
 
 section.bg-primary.full-page
   .container

@@ -46,5 +46,5 @@ end
 
 group :development, :test do
   gem 'did_you_mean'
-  gem 'dotenv', '~> 1.0.2'
+  gem 'dotenv-rails', '~> 1.0.2'
 end

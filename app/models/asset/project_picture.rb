@@ -6,9 +6,8 @@ class Asset::ProjectPicture < Asset
     styles: {
       thumb: "30x30#",
       thumb_detail: "100x100>",
-      list: "400x275#",
-      detail: "250",
-      large: "800#"
+      list: "400x300#",
+      large: "800"
     },
     storage: :s3,
     s3_credentials: {
