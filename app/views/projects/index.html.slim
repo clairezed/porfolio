@@ -6,8 +6,8 @@ section.bg-primary
 
     .row
       .col-xs-12
-        .settings data-container=""
-          .settings-header data-toggle="close"
+        .settings data-container="" class="#{params[:by_tag].present? ? 'open-setting' : 'close-setting'}"
+          .settings-header data-toggle=""
             h3
               ' Filtrer
               span.glyphicon.glyphicon-cog'
