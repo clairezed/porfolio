@@ -13,6 +13,7 @@ $ ->
   $('.tooltip_bottom').tooltip(placement: 'bottom')
 
   $('.summernote').summernote(
+    height: 150,
     toolbar: [
       ['style', ['bold', 'italic', 'underline', 'clear']]
       ['font', ['strikethrough']]

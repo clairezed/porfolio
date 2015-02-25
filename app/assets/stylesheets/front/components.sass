@@ -53,9 +53,6 @@
 .btn.floating
   @include box-shadow(0px 2px 6px 0px rgba(0,0,0,.2))
   transition: box-shadow 0.2s
-  // border-bottom: 3px solid darken($brand-secondary, 10%)
-  // border-right: 3px solid darken($brand-secondary, 10%)
-  // border-top: 2px solid lighten($brand-secondary, 15%)
   &:active
     @include box-shadow(0px 1px 3px 0px rgba(0,0,0,.1))
 
@@ -90,6 +87,7 @@
 
 .thumbnail
   position: relative
+  border-radius: 0
   .caption
     margin-bottom: 30px
   .btn
@@ -97,12 +95,21 @@
     bottom: 0
     left: 0
     width: 100%
+    border-radius: 0
+  .view-span
+    position: relative
+    display: block
+  .view-span-icon
+    position: absolute
+    right: 5px
+    opacity: 0
+    @include transition(opacity 1s ease-out)
   &:hover
     @include box-shadow(2px 2px 13px 0px rgba(0,0,0,.1))
-    .pulse-hover
-      @extend .flash
-    .btn-secondary
-      // background-color: $brand-secondary-dark
+    .view-span-icon
+      opacity: 1
+      @include transition(opacity 1s ease-out)
+
 
 
 
@@ -153,7 +160,7 @@
   .form-control
     background-color: lighten($brand-primary, 10%)
     color: #fff
-    border: none
+    // border: none
     border-bottom: 1px solid #757575
 
 

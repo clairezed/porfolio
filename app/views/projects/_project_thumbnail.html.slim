@@ -12,6 +12,6 @@
         = render "projects/tags", tag: tag
     p.text-right
       = link_to project_path(project), class:"btn btn-secondary" do
-          span.pulse-hover
+          span.view-span
             span=' "#{project.title} ?"
-            span.glyphicon.glyphicon-play
+            span.glyphicon.glyphicon-play.view-span-icon

@@ -27,7 +27,7 @@ section.bg-primary.full-page
           | L'inévitable laïus auto-centré
         .row
           .col-sm-4.medium-margin-below
-            img.img-responsive.img-circle alt="..." src="http://placehold.it/200x200"
+            = image_tag "avatar_02.png", class:"img-responsive img-circle", alt:"Claire Zuliani portrait triangulé"
           .col-sm-8.medium-margin-below
             p Développeuse web depuis 2012 après une incursion de quelques années dans le milieu culturel, je me suis spécialisée en Ruby on Rails.
             p A côté du langage ruby sur lequel je passe le plus clair de mes journées, je développe aussi des projets à titre personnel, tant côté back-end que front-end, en me plongeant dans un tas de frameworks javascript.
@@ -35,7 +35,6 @@ section.bg-primary.full-page
       .col-md-6
         h3.text-center.small-margin-below On fait quelque chose ensemble ?
         div data-ajax="contact-form"
-          / = render partial: "contacts/contact_success"
           = render "contacts/contact_form", contact: @contact
 
 
