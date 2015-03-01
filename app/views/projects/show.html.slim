@@ -33,7 +33,7 @@ section.bg-primary.middle-section.project-info
             p = l(@project.deployed_at, format: :B_Y)
         .info-capsule
           - if @project.web_link.present?
-            = link_to "Voir #{@project.title}", @project.web_link, class: "btn btn-default"
+            = link_to "Voir #{@project.title}", @project.web_link, class: "btn btn-default", target:"_blank"
     .row
       .col-md-12.text-center
         - @project.tags.each do |tag|

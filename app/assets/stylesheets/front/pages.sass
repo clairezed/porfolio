@@ -6,6 +6,19 @@
   @include animation-duration(3s)
   @include animation-iteration-count(1)
 
+.center-down
+  position: absolute
+  bottom: 20px
+  width: 100%
+  margin: 0 auto
+  a
+    font-size: 2.5em
+    color: #fff
+    @extend .fadeInRight
+    @include animation-delay(5s)
+    @include animation-duration(2s)
+    @include animation-iteration-count(1)
+
 // PROJECT SHOW =================================================================
 @media (max-width: $screen-xs-max)
   .project-info

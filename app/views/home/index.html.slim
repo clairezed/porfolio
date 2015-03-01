@@ -11,8 +11,11 @@ section.bg-primary.full-page
       .col-sm-3.col-sm-offset-9.col-xs-5.col-xs-offset-7
         h6.text-right.section-header.display-middle#animated-phrase
           | Et aussi : je n'avais pas envie de mettre d'image cache-misère en fond de page d'accueil.
+  div.center-down.text-center
+    a href="#project-section"
+      span.fa.fa-arrow-circle-down
 
-section.full-page
+section.full-page id="project-section"
   .container
     h2.text-center.section-header Projets triés sur le volet
     = render "projects/projects_list", projects: @projects
@@ -27,7 +30,7 @@ section.bg-primary.full-page
           | L'inévitable laïus auto-centré
         .row
           .col-sm-4.medium-margin-below
-            = image_tag "avatar_02.png", class:"img-responsive img-circle", alt:"Claire Zuliani portrait triangulé"
+            = image_tag "avatar00.png", class:"img-responsive img-circle", alt:"Claire Zuliani portrait triangulé"
           .col-sm-8.medium-margin-below
             p Développeuse web depuis 2012 après une incursion de quelques années dans le milieu culturel, je me suis spécialisée en Ruby on Rails.
             p A côté du langage ruby sur lequel je passe le plus clair de mes journées, je développe aussi des projets à titre personnel, tant côté back-end que front-end, en me plongeant dans un tas de frameworks javascript.
