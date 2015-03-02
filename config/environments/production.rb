@@ -76,9 +76,9 @@ Portfolio01::Application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.middleware.insert_after(::Rack::Runtime, "::Rack::Auth::Basic", "Production") do |u, p|
-    [u, p] == [ENV['SITE_USERNAME'], ENV['SITE_SECRET']]
-  end
+  # config.middleware.insert_after(::Rack::Runtime, "::Rack::Auth::Basic", "Production") do |u, p|
+  #   [u, p] == [ENV['SITE_USERNAME'], ENV['SITE_SECRET']]
+  # end
 
   HOST = "clairezed.herokuapp.com"
 
