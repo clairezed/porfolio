@@ -41,10 +41,9 @@ end
 #= DEV ============================
 group :development do
   gem "capistrano"
-  gem "rvm-capistrano"
+  gem  'rvm-capistrano',  require: false
 end
 
 group :development, :test do
-  gem 'did_you_mean'
   gem 'dotenv-rails', '~> 1.0.2'
 end
