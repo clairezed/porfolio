@@ -50,11 +50,33 @@
   &:hover, &:focus
     text-decoration: $link-hover-decoration
 
+////////////// BTN PUSH 
+.btn-push 
+  border-width: 0 0 4px 0px
+  border-style: solid
+  display: inline-block
+  vertical-align: bottom
+  padding-top: 10px
+  padding-bottom: 8px 
+  font-size: 1.3rem
+  font-weight: 500
+  transition: none
+
+  &:hover 
+    margin-top: 4px
+    border-bottom: 0px
+  &.btn-primary 
+    border-color: $brand-primary-dark
+  &.btn-secondary 
+    border-color: $brand-secondary-dark
+
 .btn.floating
   @include box-shadow(0px 2px 6px 0px rgba(0,0,0,.2))
   transition: box-shadow 0.2s
   &:active
     @include box-shadow(0px 1px 3px 0px rgba(0,0,0,.1))
+
+
 
 // LABELS ======================================
 .label
